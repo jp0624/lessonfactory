@@ -1,0 +1,101 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this?.heading"
+      [subheading]="this.activePage.content[this.step]?.subheading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <!-- && this.step !== 6 && this.step !== 7
+      [speedVal]="this.speedVal"
+      *ngIf="+this.activePage.content[this.step].settings?.video === 2 && this.activePage.content[this.step].video?.src !== ''"
+    -->
+  <ng-container *ngIf="this.activePage.content[this.step]?.settings">
+    <app-video #videoWrapper
+               *ngIf="this.step >= 6"
+               [class]="'videoDriving'"
+               [ngClass]="[this.deviceService?.deviceType ? this.deviceService?.deviceType : '', this?.step === 5 ? 'hidden' : '']"
+               [videoUrl]="this.activePage.content[this.step].video?.src"
+               [videoPoster]="this.activePage.content[this.step].video?.poster"
+               [hidePoster]="true"
+               [style.width.px]="this.videoSize?.x"
+               [style.height.px]="this.videoSize?.y"
+               [autoPlay]="false"
+               [endVideo]="this.endVideo"
+               [endFrom]="10"
+               [disableClick]="1"
+               [playsinline]="true"
+               [pauseable]="0"
+               [vidPlay]="this?.videoPlay"
+               [loopTime]="9.295"
+               [startTime]="2"
+               (videoComplete)="videoComplete($event)">
+    </app-video>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="this?.activePage ">
+
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y">
+
+    <ng-container
+      *ngIf="this.activePage.content[this.step]?.settings && this?.step !== 7 && this?.step !== 8 && !this.endVideo">
+      <app-speedometer
+        *ngIf="+this.activePage.content[this.step].settings?.speedometer === 1"
+        class="visible"
+        [ngClass]="this.deviceService?.deviceType"
+        (speedChange)="updateSpeed($event)"
+        (speedGoal)="updateSpeedGoal($event)"
+        (maintainPercent)="updateMaintain($event)"
+        (updateResults)="updateResults($event)"
+        [goal]="this.speedometerGoal">
+      </app-speedometer>
+
+      <div class="maintainBar" *ngIf="this?.step === 3">
+        <div class="progress"></div>
+      </div>
+      <ng-container *ngIf="this?.step !== 6 || this?.goalReached === true">
+        <app-phone
+          *ngIf="+this.activePage.content[this.step].settings?.phone === 1"
+          class="visible"
+          [ngClass]="this.deviceService?.deviceType"
+          (numberEntered)="numberEntered(event)">
+        </app-phone>
+      </ng-container>
+      <app-span
+        [attr.dir]="this.lessonDataService?.textDir"
+        [text]="this.activePage.content[this.step].figcaption?.text"
+        [ngClass]="this?.step >= 0 ? 'step step-' + this?.step + ' ' + this.lessonDataService?.textDir : 'step' + ' ' + this.lessonDataService?.textDir"
+      >
+      </app-span>
+    </ng-container>
+    <ng-container
+      *ngIf="this?.step === 7">
+      <ul class="results"
+          [ngClass]="this.deviceService?.deviceType">
+        <li>
+          <h3>{{ this.activePage.content[this.step].result1.heading }} %</h3>
+          <h4>{{ this.activePage.content[this.step].result1.text }}</h4>
+        </li>
+        <li>
+          <h3>{{ this.activePage.content[this.step].result2.heading }}</h3>
+          <h4>{{ this.activePage.content[this.step].result2.text }}</h4>
+        </li>
+        <li>
+          <h3>{{ this.activePage.content[this.step].result3.heading }}</h3>
+          <h4>{{ this.activePage.content[this.step].result3.text }}</h4>
+        </li>
+        <!--
+          <li *ngFor="let result of this.activePage.content[this.step].results">
+            <h3>{{result.result}}</h3>
+            <h4>{{result.text}}</h4>
+          </li>
+        -->
+      </ul>
+    </ng-container>
+
+  </div>
+</ng-container>

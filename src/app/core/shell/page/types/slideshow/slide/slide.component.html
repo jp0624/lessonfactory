@@ -1,0 +1,73 @@
+<ng-container *ngIf="this?.activePage">
+    <div class="header-wrapper" #header>
+      <app-header
+        [heading]="slideData.headings?.heading"
+        [activePage]="this?.activePage"
+        [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+        [activePageId]="this?.activePageId">
+      </app-header>
+    </div>
+    <div class="canvas-wrapper" #canvas
+         [style.width.px]="this.canvasSize?.x"
+         [style.height.px]="this.canvasSize?.y"
+         [ngClass]="[this.initSized ? 'sizeInit' : 'idle']"
+         dir="ltr">
+      <app-figure
+        class="canvas-figure"
+        *ngIf="slideData?.figure"
+        [imgSrc]="slideData.figure?.src"
+        [imgAlt]="slideData.figure?.alt"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y">
+      </app-figure>
+      <app-figcaption
+        *ngIf="slideData.headings?.text"
+        [text]="slideData.headings?.text">
+      </app-figcaption>
+    </div>
+    <div
+      class="content-wrapper"
+      [ngClass]="this.lessonDataService?.textDir" #content>
+      <app-figcaption
+        [text]="slideData.figcaption?.text">
+      </app-figcaption>
+    </div>
+  </ng-container>
+  
+<!--
+  <ng-container *ngIf="this?.activePage">
+    <div class="header-wrapper" #header>
+      <app-header
+        [heading]="slideData.headings?.heading"
+        [activePage]="this?.activePage"
+        [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+        [activePageId]="this?.activePageId">
+      </app-header>
+    </div>
+  
+    <div class="canvas-wrapper" #canvas
+         [style.width.px]="this.canvasSize?.x"
+         [style.height.px]="this.canvasSize?.y"
+         [ngClass]="[this.initSized ? 'sizeInit' : 'idle']"
+         dir="ltr">
+      <app-figure
+        class="canvas-figure"
+        *ngIf="slideData?.figure"
+        [imgSrc]="slideData.figure?.src"
+        [imgAlt]="slideData.figure?.alt"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y">
+      </app-figure>
+      <app-figcaption
+        *ngIf="slideData.headings?.text"
+        [text]="slideData.headings?.text">
+      </app-figcaption>
+    </div>
+    <div id="divAppFigContainer" class="content-wrapper"    
+      [ngClass]="this.lessonDataService?.textDir" #content>
+      <app-figcaption
+      [innerHTML]="slideData.figcaption?.text| safeHtml">
+      </app-figcaption>  
+    </div>
+  </ng-container>
+-->

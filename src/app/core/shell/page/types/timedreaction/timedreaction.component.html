@@ -1,0 +1,125 @@
+<ng-container *ngIf="this?.activePage">
+  <ng-container *ngIf="this.showResults === true">
+    <div class="header-wrapper reactTime" #header>{{ this.componentData.results?.heading }}</div>
+  </ng-container>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="this.initSized ? 'animate' : null">
+
+    <ng-container *ngIf="this.complete !== true && this.showResults">
+      <a (click)="tryAgain()" class="btn-tryagain">
+        <span>{{ this.componentData.results?.retry }}</span>
+      </a>
+    </ng-container>
+    <div class="results-wrapper" [ngClass]="this.showResults ? 'showMe' : 'hideMe'"
+         [style.width.px]="this.figureSize?.x"
+         [style.height.px]="this.figureSize?.y">
+      <ul>
+        <li class="heading-icons">
+          <div class="results-title"><img
+            src="{{ this.globalService?.assetsurl }}{{ this.componentData.results?.attempt_icon }}"></div>
+          <div class="results-time"><img
+            src="{{ this.globalService?.assetsurl }}{{ this.componentData.results?.timing_icon }}"></div>
+          <div class="results-distance"><img
+            src="{{ this.globalService?.assetsurl }}{{ this.componentData.results?.distance_icon }}"></div>
+          <div class="results-measure"><img
+            src="{{ this.globalService?.assetsurl }}{{ this.componentData.results?.measure_icon }}"></div>
+        </li>
+        <ng-container *ngFor="let attempt of this.componentData?.attempts">
+          <li class="attempt-wrapper" *ngIf="attempt?.reactTime">
+            <div class="attempt-title">{{attempt?.title}}</div>
+            <div class="attempt-time">{{attempt?.reactTime}}</div>
+            <div class="attempt-distance">{{attempt?.distanceUnit}}</div>
+            <div class="attempt-length">{{attempt?.measureUnit}}</div>
+          </li>
+        </ng-container>
+        <li class="results-footer" *ngIf="this.attemptsComplete > 1">
+          <div class="attempt-title">{{ this.componentData.results?.average }}</div>
+          <div class="attempt-time">{{this.componentData.results.averages?.time}}</div>
+          <div class="attempt-distance">{{this.componentData.results.averages?.distance}}</div>
+          <div class="attempt-length">{{this.componentData.results.averages?.measure}}</div>
+        </li>
+      </ul>
+      <div class="results-content">
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="this.complete && this.showResults">
+    <div class="content-wrapper" #content>
+      <ng-container *ngIf="this?.showResults">
+        {{ this.componentData.results?.content }}
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <app-video
+    [ngClass]="this.showResults !== true ? 'showMe' : 'hideMe'"
+    *ngIf="this.componentData.video?.src"
+    class="canvas-video timedReact-video"
+    [videoUrl]="this.componentData.video?.src"
+    [videoPoster]="this.componentData.video?.poster"
+    [autoPlay]="false"
+    [playsinline]="true"
+    [pauseable]="this.componentData.settings?.pauseable"
+
+    [vidPlay]="this?.vidPlay"
+    [btnPlay]="this?.btnPlay"
+    [restartVid]="this?.restartVid"
+
+    [timeline]="true"
+    [loopTime]="19"
+    [startTime]="0"
+    [theme]="this.componentData.settings?.theme"
+    [controls]="this.componentData.settings?.controls"
+    (videoComplete)="videoComplete($event)"
+    (videoTime)="videoTime($event)"
+    (videoDetails)="videoDetails($event)"
+    [style.width.px]="this.videoSize?.x"
+    [style.height.px]="this.videoSize?.y">
+  </app-video>
+
+  <div class="interactive-wrapper"
+       [ngClass]="this.showResults !== true ? 'showMe' : 'hideMe'"
+       [style.width.%]="100"
+       [style.height.%]="100"
+       [ngClass]="this?.showPrompt ? 'prompt-' + this?.activePrompt : null">
+
+    <div class="prompt"
+         [ngClass]="[this?.showPrompt ? 'showPrompt' + ' ' + this?.activePrompt + '' : ' hidePrompt ', this?.warnActive ? ' warnActive' : ' null']">
+      <span>{{ this.componentData.prompts[this?.activePrompt] }}</span>
+    </div>
+
+    <div class="icon start-icon"
+         *ngIf="!this.showResults"
+         (mousedown)="reactStart(); reactDown();"
+         (touchstart)="reactStart(); reactDown();"
+         (mouseup)="reactStop()"
+         (touchend)="reactStop()"
+         (mouseleave)="reactStop()"
+         [ngClass]="[this?.activePrompt === 'start' && !this?.endActive ? 'animate' : ' null']">
+      <ng-container *ngIf="this.componentData.icons.start_icon?.svg">
+        <div [innerHTML]="this.componentData.icons.start_icon?.svg | safeHtml" class="scene-html"></div>
+      </ng-container>
+    </div>
+
+    <div class="icon end-icon"
+         *ngIf="!this.showResults"
+         (click)="reactSubmit()"
+         [ngClass]="[this?.endActive ? 'animate' : ' null']">
+      <ng-container *ngIf="this.componentData.icons.end_icon?.svg">
+        <div [innerHTML]="this.componentData.icons.end_icon?.svg | safeHtml" class="scene-html"></div>
+      </ng-container>
+    </div>
+    <div class="icon react-icon" [ngClass]="'icon-' + this.activeAttempt?.type"
+         *ngIf="this?.reactActive && (this.activeAttempt?.type === 'wrong' || this.activeAttempt?.type === 'correct')">
+      <ng-container *ngIf="this.activeAttempt?.type === 'wrong'">
+        <div [innerHTML]="this.componentData.icons.wrong_icon?.svg | safeHtml" class="scene-html"></div>
+      </ng-container>
+      <ng-container *ngIf="this.activeAttempt?.type === 'correct'">
+        <div [innerHTML]="this.componentData.icons.correct_icon?.svg | safeHtml" class="scene-html"></div>
+      </ng-container>
+    </div>
+
+  </div>
+</ng-container>

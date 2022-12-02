@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+:host {
+  float: left;
+
+  .content-wrapper {
+    padding-left: 2em;
+    width: calc(98% - 2em);
+  }
+  &.rtl {
+    .content-wrapper {
+      padding-left: 0em;
+      padding-right: 2em;
+      width: calc(98% - 2em);
+      float: right;
+    }
+  }
+}
+
+app-figure {
+  position: relative;
+  float: left;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+app-figcaption {
+  float: left;
+  width: 100%;
+}
+
+
+// :host {
+//   .canvas-wrapper {
+//     float:left;
+//     width: 49%;
+//     app-figure  {
+//       position: relative;
+//       transform: translate(-50%, 0);
+//       transition: none;
+//       width: 100%;
+//       left: 2em;
+//       &.rtl {
+//         left: initial;
+//         right: 2em;
+//         text-align: right;        
+//       }
+//     }
+//   }
+//   .content-wrapper {
+//     float:right;
+//     width: 49%;
+//     position: absolute;
+//     top: 40%;
+//     left: 50%;
+//     margin-left: 10px;
+//     overflow: auto;
+//     padding-bottom: 5%;
+//     line-height: 1em;
+//     word-spacing: normal;   
+//     &.rtl {
+//       float: right;
+//     }
+//     app-figcaption {
+//       position: relative;
+//       height: 100%;      
+//       float: left;
+//       width: 100%;
+//       &.rtl {
+//         left: initial;
+//         right: 2em;
+//         text-align: right;
+//       }      
+//     }    
+//    } 
+// }

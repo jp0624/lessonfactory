@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+:host {
+
+  .assessment-wrapper {
+    height: 100%;
+    width: 100%;
+
+    app-question {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 1000ms transform ease-in-out;
+
+      &.question-next {
+        transform: translate(100%, 0%);
+      }
+      &.question-active {
+        transform: translate(0%, 0%);
+      }
+      &.question-prev {
+        transform: translate(-100%, 0%);
+      }
+    }
+  }
+}

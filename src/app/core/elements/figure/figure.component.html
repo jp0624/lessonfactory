@@ -1,0 +1,8 @@
+<s></s>
+<figure *ngIf="this?.imgSrc || this?.imgData">
+  <img [src]="this.globalService.assetsurl + this.imgSrc" [alt]="this?.imgAlt" *ngIf="this?.imgSrc"/>
+
+  <ng-container *ngIf="this?.imgData">
+    <div [innerHTML]="this.imgData | safeHtml" class="img-svg"></div>
+  </ng-container>
+</figure>

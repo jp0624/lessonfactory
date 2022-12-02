@@ -1,0 +1,144 @@
+{
+  "lesson_name": "Situational Awareness",
+  "lesson_id": 47,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "Slide01",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 72,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": ""
+          },
+          "figure": {
+            "src": "/media/lessons/sat/SAT_Slide01.svg",
+            "alt": "Situational Awareness (Slide 01)"
+          },
+          "figcaption": {
+            "text": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide02",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 73,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Situational Awareness (Slide 02)",
+            "src": "/media/lessons/sat/SAT_Slide02.svg"
+          },
+          "figcaption": {
+            "text": ""
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide03",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 74,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "",
+            "src": "/media/lessons/sat/SAT_Slide03.png"
+          },
+          "figcaption": {
+            "text": ""
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "task_type_id": 2,
+      "pagetype": "VideopageComponent",
+      "lockType": "video-complete",
+      "task_id": 75,
+      "display_main": 0,
+      "display_next": 0,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figcaption": {
+            "text": ""
+          },
+          "video": {
+            "poster": "/media/lessons/sat/Situational_Awareness-poster.gif",
+            "src": "/media/lessons/sat/SAT_Demo.mp4"
+          },
+          "settings": {
+            "controls": false,
+            "timeline": false
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    }
+  ]
+}

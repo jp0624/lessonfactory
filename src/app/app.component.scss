@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+@import "../assets/scss/mixins",
+"../assets/scss/variables";
+
+@keyframes bubble {
+  from {
+    transform: translate(-50%, 0) scale(0);
+  }
+  50% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  to {
+    transform: translate(-50%, 0) scale(0);
+  }
+}
+
+.error {
+  background-color: $color-highlight;
+  padding: 0.15em;
+}
+
+svg {
+  .text {
+    font-family: 'Noto Sans', 'NotoLocal', sans-serif;
+  }
+}
+
+html > div[style] {
+  display: none;
+}
+
+.page-wrapper {
+  @include abs-strech-fill();
+
+  .header-wrapper,
+  .canvas-wrapper,
+  .content-wrapper {
+    float: left;
+    width: 100%;
+  }
+  .content-wrapper {
+    width: 92%;
+  }
+  .canvas-wrapper {
+    position: relative;
+    .canvas-figure,
+    .canvas-video {
+      @include abs-center-position();
+    }
+
+  }
+  app-page {
+
+    @media screen and (max-width: 1026px) {
+      font-size: 1.25em;
+    }
+    @media screen and (max-width: 769px) {
+      font-size: 1.5em;
+    }
+  }
+  .loading-screen {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+
+    .loading {
+      width: 5em;
+      position: absolute;
+      @include abs-center-position();
+
+      @media screen and (max-width: 900px) {
+        width: 10em;
+      }
+
+      li {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-name: bubble;
+        animation-timing-function: ease-in-out;
+
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        float: left;
+        background-color: #cc3334;
+        border-radius: 50%;
+        transform: translate(-50%, 0);
+
+        @media screen and (max-width: 900px) {
+          width: 2em;
+          height: 2em;
+        }
+
+        &:nth-child(1) {
+          left: 0%;
+          animation-delay: -0.375s;
+        }
+        &:nth-child(2) {
+          left: 33.33333333333333%;
+          animation-delay: -0.25s;
+        }
+        &:nth-child(3) {
+          left: 66.66666666666667%;
+          animation-delay: -0.125s;
+        }
+        &:nth-child(4) {
+          left: 100%;
+          animation-delay: 0s;
+        }
+      }
+    }
+  }
+
+}
+
+[dir=rtl] {
+  app-timed {
+    right: auto;
+    left: 0;
+  }
+}
+
+app-timed {
+  transform: translate(100%, 0%);
+  transition: transform 250ms ease-out 0ms;
+
+  width: 3.5em;
+  position: absolute;
+  right: 0;
+  bottom: 1em;
+  z-index: 9;
+
+  &.hide {
+    opacity: 0;
+    transform: translate(100%, 0%);
+
+    &.home {
+      transition: transform 0ms ease-out 0ms;
+    }
+  }
+  &.show {
+
+    transform: translate(0%, 0%);
+  }
+
+}

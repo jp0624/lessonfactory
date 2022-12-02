@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+.backdrop {
+  cursor: pointer;
+  z-index: -1;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  @include transition-multi(opacity 250ms ease-out 0ms, z-index 0ms ease-out 250ms);
+  @include abs-strech-fill();
+
+  &.expanded {
+    opacity: 1;
+    z-index: 99;
+
+    @include transition-multi(opacity 250ms ease-out 0ms, z-index 0ms ease-out 0ms);
+  }
+}

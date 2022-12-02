@@ -1,0 +1,338 @@
+{
+  "lesson_name": "Inappropriate speeds for conditions",
+  "lesson_id": 45,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "Video Assessment",
+      "task_type_id": 16,
+      "pagetype": "VideoassessmentComponent",
+      "lockType": "video-complete",
+      "task_id": 57,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 1,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "video": {
+            "poster": "/media/lessons/pvisc/intro/image01.png",
+            "src": "/media/lessons/pvisc/video/USA_EN_ISC.mp4"
+          }
+        },
+        {
+          "settings": {
+            "markers": true
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following statements is true?",
+            "time": "22"
+          },
+          "answer1": {
+            "score": "22",
+            "text": "[a] the posted speed limit is sometimes too fast for the driving conditions"
+          },
+          "answer2": {
+            "text": "[b] the posted speed limit should only be exceeded on highways",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] the posted speed limit should only be exceeded on residential streets",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] the posted speed limit is the appropriate speed for all conditions",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] the posted speed limit applies only to inexperienced drivers",
+            "score": "0"
+          }
+        },
+        {
+          "question": {
+            "text": "What should you do as you assess your surroundings while driving?",
+            "time": "64"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] frequently talk on your cell phone to stay updated on news"
+          },
+          "answer2": {
+            "text": "[b] keep your eyes fixed on one point straight ahead",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] note important factors, such as the road layout, weather conditions and traffic flow",
+            "score": "2"
+          },
+          "answer4": {
+            "text": "[d] stop your vehicle every 30 minutes to scan the road",
+            "score": "0"
+          },
+          "answer5": {
+            "score": "0",
+            "text": "[e] take a photo of your surroundings every 30 minutes"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following helps you maintain a safe speed in adverse weather conditions?",
+            "time": "97"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] decreasing your following distance by 50%"
+          },
+          "answer2": {
+            "score": "2",
+            "text": "[b] giving yourself extra time to reach your destination"
+          },
+          "answer3": {
+            "text": "[c] driving at a speed 15% faster than the fastest car on the road",
+            "score": "0"
+          },
+          "answer4": {
+            "score": "0",
+            "text": "[d] rapidly weaving through traffic until the weather improves"
+          },
+          "answer5": {
+            "score": "0",
+            "text": "[e] driving faster in adverse weather than you do in ideal conditions"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following should you avoid?",
+            "time": "128"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] aggressively weaving through traffic"
+          },
+          "answer2": {
+            "text": "[b] driving too slowly in the passing lane",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] cutting off other vehicles",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] A and B only",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] A, B and C",
+            "score": "2"
+          }
+        },
+        {
+          "question": {
+            "text": "In which of the following areas should you slow down?",
+            "time": "169"
+          },
+          "answer1": {
+            "text": "[a] around schools",
+            "score": "0"
+          },
+          "answer2": {
+            "text": "[b] around construction zones",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] in all passing lanes",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] A and B only",
+            "score": "2"
+          },
+          "answer5": {
+            "text": "[e] A and C only",
+            "score": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Intro",
+      "task_type_id": 4,
+      "pagetype": "TitlescreenComponent",
+      "lockType": "none",
+      "task_id": 54,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+        {
+          "term": "Continue",
+          "selector": "{$dt-continue}",
+          "value": "Continue"
+        }
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Inappropriate speeds for conditions",
+            "subheading": "Defensive Driver Training",
+            "src": ""
+          },
+          "figure": {
+            "src": "/media/lessons/pvisc/intro/image01.png",
+            "alt": "Inappropriate speeds for conditions"
+          },
+          "settings": {
+            "reverse": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Guage",
+      "task_type_id": 6,
+      "pagetype": "HtmlcssComponent",
+      "lockType": "time-char",
+      "task_id": 58,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figcaption": {
+            "text": "An appropriate speed is critical for road safety, but selecting it requires careful assessment. Weather, traffic and surroundings change frequently, and a speed appropriate in one situation may be dangerous in another. Even the posted speed limit is too fast for some circumstances. Inappropriate speed affects the time a driver has to identify hazards, impacts a vehicle’s stopping distance and accounts for many deadly collisions every year."
+          },
+          "markup": {
+            "html": "<div class='guage-wrapper'> <svg version='1.1' class='guage' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 763' style='enable-background:new 0 0 1920 763;' xml:space='preserve'> <circle class='background' cx='960' cy='763' r='647.8'/> <circle class='data' cx='960' cy='763' r='647.8'/> </svg> <div class='needle-wrapper'> <img class='needle' src='{$dt-mediaUrl}/media/lessons/pvisc/guage/needle.svg' alt=''> </div> </div>",
+            "css": "<style> .guage-wrapper { width: 100%; } .guage { position: absolute; width: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); } .guage circle { fill:none; stroke-width:182; stroke:#ddd; } .guage circle.data { stroke:#AEDEEA; stroke-dasharray: 2030,2100; transition: stroke-dasharray 1000ms ease-in-out 750ms; } .loaded .guage circle.data { stroke-width:184; stroke-dasharray: 3350,2100; } .guage circle { } .needle-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 15%; float: left; } .needle { transform-origin: bottom center; transform: rotate(-90deg); transition: transform 1000ms ease-in-out 750ms; } .loaded .needle { transform-origin: bottom center; transform: rotate(25deg); } </style>"
+          },
+          "headings": {
+            "heading": " No Universally Safe Speed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chart",
+      "task_type_id": 15,
+      "pagetype": "ChartComponent",
+      "lockType": "func-int",
+      "task_id": 56,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "settings": {
+            "measurement_marker": "25",
+            "measurement_max": "100",
+            "series_show": "0",
+            "series_unit": "mph",
+            "series_title": "Driving Speed",
+            "measurement_title": "Crash Risk",
+            "measurement_show": "1"
+          }
+        },
+        {
+          "headings": {
+            "text": "Crash risk increases when the speed of vehicles in traffic differs.",
+            "subheading": "",
+            "heading": "Dangerous Speed Differences"
+          }
+        },
+        {
+          "item": {
+            "title": "5 mph",
+            "value": "12",
+            "highlight": "0"
+          }
+        },
+        {
+          "item": {
+            "highlight": "0",
+            "title": "10 mph",
+            "value": "23"
+          }
+        },
+        {
+          "item": {
+            "value": "55",
+            "highlight": "0",
+            "title": "15 mph"
+          }
+        },
+        {
+          "item": {
+            "title": "20 mph",
+            "highlight": "1",
+            "value": "100"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Congratulations",
+      "task_type_id": 13,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 59,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "subheading": "Remember, always adjust to the driving conditions.",
+            "heading": "Congratulations",
+            "text": "You have successfully completed the Lesson"
+          }
+        }
+      ]
+    }
+  ]
+}

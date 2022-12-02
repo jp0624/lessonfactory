@@ -1,0 +1,75 @@
+<p>Video Player Works!</p>
+<ng-container *ngIf="this?.videoUrl || this?.videoArray">
+  <div class="video-wrapper" [ngClass]="{'complete': this?.finishVid}">
+
+    <!--
+      <video #videoPlayer
+        class="{{this?.class}}"
+        height="9"
+        width="16"
+        poster="{{this.globalService?.assetsurl}}{{this?.videoPoster}}"
+        [attr.playsinline]="this.playsinline ? 'true' : null"
+        [attr.webkit-playsinline]="this.playsinline ? 'true' : null"
+        >
+          <source
+            type="video/mp4;"
+            codecs="avc1.42E01E, mp4a.40.2"
+            src="{{this.globalService?.assetsurl}}{{this?.videoUrl}}"
+            class="vid-mp4">
+          <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+
+      </video>
+    -->
+    <ng-container *ngFor="let video of this?.videoArray">
+      <app-video
+        [videoUrl]="video.src"
+        [autoPlay]="this?.autoPlay"
+        [playsinline]="this?.playsinline"
+        [vidPlay]="this?.vidPlay"
+        (videoComplete)="videoComplete($event)"
+        (videoTime)="videoTime($event)">
+      </app-video>
+    </ng-container>
+
+    <img class="poster" *ngIf="!this.hidePoster" src="{{this.globalService?.assetsurl}}{{this?.videoPoster}}">
+    <div class="overlay overlay-{{this?.class}}" (click)="togglePlayback()"></div>
+
+    <ng-container *ngIf="this?.controls || this?.timeline">
+      <app-standard [icon]="'play_circle_filled'" [type]="'material-icon'" (click)="togglePlayback()"
+                    *ngIf="!this?.vidPlay && this.btnPlay" class="btn-center-play"></app-standard>
+      <div class="customControls" [ngClass]="[this?.theme ? 'controls-' + this?.theme : 'controls-normal']">
+        <ng-container *ngIf="this?.controls">
+          <div class="btn-wrapper">
+            <div class="btn-center">
+              <app-standard [icon]="'pause_circle_filled'" [type]="'material-icon'" (click)="togglePlayback()"
+                            *ngIf="this?.vidPlay"></app-standard>
+              <app-standard [icon]="'play_circle_filled'" [type]="'material-icon'" (click)="togglePlayback()"
+                            *ngIf="!this?.vidPlay"></app-standard>
+              <app-standard [icon]="'skip_previous'" [type]="'material-icon'" (click)="restart()"></app-standard>
+              <app-standard [icon]="'replay_10'" [type]="'material-icon'" (click)="replay10()"></app-standard>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="this?.timeline">
+          <div class="timeline-wrapper"
+               [ngClass]="[!this.controls ? 'fullwidth' : 'normal', this?.theme ? 'timeline-' + this?.theme : 'timeline-normal']">
+            <div class="timeline">
+              <div class="progress"
+                   [style.left.%]="this.percentComplete"></div>
+              <ng-container *ngIf="this?.videoPlayer">
+                <ul class="markers">
+                  <li
+                    class="marker"
+                    *ngFor="let marker of this?.markers"
+                    [ngClass]="[marker.status ? marker.status : 'idle']"
+                    [ngStyle]="{'left': 100 / this?.videoDuration * marker.time + '%'}"></li>
+                </ul>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+  </div>
+</ng-container>

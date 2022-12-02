@@ -1,0 +1,88 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.componentData.headings?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       dir="ltr"
+       [ngClass]="[this?.pageLoaded ? 'loaded' : 'notload']">
+
+    <div class="bandwidth-wrapper"
+         [style.width.px]="this.figureSize?.x"
+         [style.height.px]="this.figureSize?.y">
+      <div class="loading-wrapper"
+           [ngClass]="[this.bandwidthService.bandwidthData.settings.complete ? 'loaded' : 'loading']">
+        <ng-container *ngIf="this.componentData.settings?.src && !this.componentData.settings?.svg">
+          <app-figure
+            class="icon-wrapper"
+            [imgSrc]="this.componentData.settings?.src"
+            [imgAlt]="this.componentData.headings?.heading">
+          </app-figure>
+        </ng-container>
+        <ng-container *ngIf="this.componentData.settings?.svg">
+          <div class="icon-wrapper" [innerHTML]="this.componentData.settings.svg | safeHtml"></div>
+        </ng-container>
+        <div class="results-wrapper">
+          <ng-container *ngIf="this.bandwidthService.bandwidthData.settings?.loadProgress < 100">
+            <h2 class="result result-loading">
+              {{this.componentData.headings?.loading}}
+            </h2>
+            <h1 class="result result-loaded">
+              {{ this.bandwidthService.bandwidthData.settings?.loadProgress }}{{ this.componentData.headings?.percent }}
+            </h1>
+          </ng-container>
+          <ng-container *ngIf="this.bandwidthService.bandwidthData.settings?.loadProgress === 100">
+            <h1 class="result result-mbs">
+              {{ this.bandwidthService.bandwidthData.settings?.threshold }}{{ this.componentData.headings?.unit }}
+            </h1>
+            <h2 class="result result-btn" (click)="this.bandwidthService.start(this.componentData)">
+                    <span>
+                      {{ this.componentData.headings?.test }}
+                    </span>
+            </h2>
+          </ng-container>
+        </div>
+      </div>
+      <div class="formats-wrapper"
+           [ngClass]="[this.bandwidthService.bandwidthData.settings.complete ? 'loaded' : 'loading']">
+        <ng-container *ngFor="let format of this.bandwidthService.bandwidthData.formats; let i = index">
+          <div class="format"
+               [ngClass]="[this.bandwidthService.bandwidthData.settings.activeFormat === i && this.bandwidthService.bandwidthData.settings.complete ? 'active' : 'idle']"
+               (click)="this.bandwidthService.setFormat(i)">
+            <ng-container *ngIf="format.svg">
+              <span class="formatQuality">{{ format.quality }}</span>
+              <div class="icon-wrapper" [innerHTML]="format.svg | safeHtml"></div>
+            </ng-container>
+            <div class="headings-wrapper">
+              <h1 *ngIf="format?.name" class="format-name">
+                <span>{{ format.name }}</span>
+              </h1>
+              <h2 *ngIf="format?.description" class="format-description">
+                <span>{{ format.description }}</span>
+              </h2>
+            </div>
+            <div class="check-wrapper">
+              <i class="material-icons">check</i>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <!--
+      <pre>
+          {{ this.bandwidthService.bandwidthData.settings | json }}
+          {{ this.bandwidthService.bandwidthData.formats[this.bandwidthService.bandwidthData.settings?.activeFormat]?.name }}
+      </pre>
+      -->
+    </div>
+  </div>
+  <div
+    class="content-wrapper"
+    [ngClass]="this.lessonDataService?.textDir" #content>
+  </div>
+</ng-container>

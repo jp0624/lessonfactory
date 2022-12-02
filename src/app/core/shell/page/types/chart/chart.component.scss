@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+.canvas-wrapper {
+  position: relative;
+
+  &.loaded {
+    .chart-wrapper {
+      .chart {
+        .data {
+          .series-values {
+
+            .item-value {
+              transform: translate(0%, 0%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .chart-wrapper {
+    float: left;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 80%;
+    height: 85%;
+    transform: translate(-50%, -50%);
+
+    .chart {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      font-size: 0.75em;
+
+      .data {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 90%;
+        width: 90%;
+        border-left: 0.15em solid #666;
+        border-bottom: 0.15em solid #666;
+        .chart-markers {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          .marker {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 0.1em;
+            background-color: #666;
+          }
+
+        }
+        .series-values {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0.9;
+
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+
+          .item-value {
+            height: 25%;
+            position: relative;
+            float: left;
+            clear: both;
+            transform: translate(-100%, 0%);
+            transition: 750ms transform ease-in-out 750ms;
+
+            .unit {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translate(0, -50%);
+              height: 80%;
+              width: 100%;
+              background: $color-disabled;
+            }
+            &.highlight {
+              .unit {
+                background-color: #AEDEE9;
+              }
+            }
+          }
+        }
+      }
+      .series-headings {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 90%;
+        text-align: right;
+        .item-heading {
+          position: relative;
+          width: 100%;
+          height: 25%;
+          float: right;
+          clear: both;
+          span {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            float: left;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+      .chart-title-measurement {
+        width: 90%;
+        position: absolute;
+        top: 90%;
+        height: 10%;
+        left: 10%;
+        text-align: center;
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          white-space: nowrap;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+  }
+}

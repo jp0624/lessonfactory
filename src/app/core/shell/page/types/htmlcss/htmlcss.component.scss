@@ -1,0 +1,23 @@
+.html-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.css-wrapper {
+  display: none;
+}
+
+.content-wrapper {
+  padding-left: 2em;
+  width: calc(98% - 2em);
+
+  &.rtl {
+    padding-left: 0em;
+    padding-right: 2em;
+    width: calc(98% - 2em);
+    text-align: right;
+    float: right;
+  }
+}

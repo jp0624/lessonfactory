@@ -1,0 +1,38 @@
+<ng-container *ngIf="this?.data && this?.scoring">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.data?.heading">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="[this.initSized ? 'sizeInit' : 'idle']"
+       dir="ltr">
+    <div class="canvas-figure"
+         [style.width.px]="this.figureSize?.x"
+         [style.height.px]="this.figureSize?.y"
+    >
+      <app-figure
+        [imgSrc]="this.data?.src">
+      </app-figure>
+      <div class="score-wrapper" #scores>
+        <h1 class="total">{{ this.scoring?.total }}/{{ this.scoring?.possible }}</h1>
+        <p>{{ this.data?.identify }}</p>
+        <h2 class="sub-total">{{ this.scoring?.identify }}</h2>
+        <p>{{ this.data?.reaction }}</p>
+        <h2 class="sub-total">{{ this.scoring?.reaction }}</h2>
+        <p>{{ this.data?.attempt }}</p>
+        <h2 class="sub-total">{{ this.scoring?.attempt }}</h2>
+      </div>
+    </div>
+  </div>
+  <div
+    class="content-wrapper"
+    [dir]="this.lessonDataService?.textDir"
+    [ngClass]="this.lessonDataService?.textDir" #content>
+    <app-figcaption
+      [text]="this.data?.text">
+    </app-figcaption>
+  </div>
+</ng-container>

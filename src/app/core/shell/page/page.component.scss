@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-color: $color-main-bg;
+  opacity: 0;
+  transition: opacity 1000ms linear 0ms;
+  overflow: hidden;
+
+  &.inner {
+    opacity: 1;
+    transition: all 0ms linear;
+  }
+  &.home {
+    opacity: 1;
+    transition: opacity 500ms linear 50ms;
+  }
+  &.QuestionComponent {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  &.QuestionComponent,
+  &.AssessmentComponent {
+    background-color: $color-disabled
+  }
+}
+
+app-page-structure {
+  @include abs-strech-fill();
+
+}
+
+section {
+
+  // padding: 2em 1.5em 1.5em;
+  padding: 1.5em 1.5em;
+
+  &.page-type-QuestionComponent,
+  &.page-type-TitlescreenComponent,
+  &.page-type-SpeedometerTypeComponent,
+  &.page-type-AssessmentComponent,
+  &.page-type-TimedreactionComponent,
+  &.page-type-VideoassessmentComponent {
+    padding: 0;
+  }
+  &.page-type-QuestionComponent {
+  }
+  .content-wrapper-InteractivevideosceneComponent {
+    position: relative;
+  }
+  .page-type-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  .center-content {
+    article {
+      position: absolute;
+      transform: translate(0%, -50%);
+      //top: calc(50% + 2em);
+      top: calc(50%);
+      //height: auto;
+
+    }
+  }
+  article {
+    height: 100%;
+    width: 100%;
+    float: left;
+
+    &.content-wrapper-question {
+      height: 100%;
+    }
+  }
+  &.page-type-TitlescreenComponent,
+  &.page-type-SpeedometerTypeComponent {
+    article {
+      top: 50%;
+    }
+  }
+
+  &.page-type-CentertextComponent {
+    .center-content {
+      article {
+        top: 50%;
+      }
+    }
+  }
+
+}

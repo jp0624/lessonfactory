@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+@import "../../../../../../../../assets/scss/mixins",
+"../../../../../../../../assets/scss/variables";
+
+:host {
+  &.selected {
+    .answer-confirm {
+      transform: translate(0%, 0%);
+
+    }
+    &.rtl {
+      .answer-confirm {
+        transform: translate(0%, 0%);
+
+      }
+    }
+  }
+  &.rtl {
+    .answer-content {
+      padding: 1.5em 1.5em 1.5em 5em;
+    }
+    .answer-confirm {
+      position: absolute;
+      left: 0;
+      right: initial;
+
+      transform: translate(-110%, 0%);
+    }
+    .answer-label {
+      left: initial;
+      right: 0;
+      top: 0;
+    }
+
+  }
+  .answer-label {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 5%;
+    height: 100%;
+    background-color: #bbb;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 900;
+
+    em {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%)
+    }
+
+  }
+  .answer-content {
+    display: block;
+    padding: 1.5em 5em 1.5em 1.5em;
+    width: 100%;
+    float: left;
+    font-size: 0.65em;
+    position: relative;
+
+    &.label {
+      left: 5%;
+      width: 95%;
+    }
+  }
+  .answer-confirm {
+    position: absolute;
+    right: 0;
+
+    height: 100%;
+    display: block;
+    background-color: $color-cta;
+    width: 2.5em;
+    color: $color-main-bg;
+
+    transition: all 250ms ease-in-out;
+    transform: translate(110%, 0%);
+
+    i {
+      @include abs-center-position();
+    }
+  }
+}

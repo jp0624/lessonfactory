@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+@import "variables";
+
+/* -----------------------------------------------------------------------------------------------------
+                                     GLOBAL MIXINS STARTS
+----------------------------------------------------------------------------------------------------- */
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin abs-strech-fill($position: absolute, $top: 0, $left: 0, $height: 100%, $width: 100%) {
+  position: $position;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+@mixin transition-multi($var...) {
+  @include transition-multi-each($var);
+}
+
+@mixin transition-multi-each($var) {
+  transition: $var;
+}
+
+@mixin transition($element: all, $speed: 500ms, $ease: ease-out, $delay: 0ms) {
+  transition: $element $speed $ease $delay;
+}
+
+@mixin transform-multi($var...) {
+  @include transform-multi-each($var);
+}
+
+@mixin transform-multi-each($var) {
+  transform: $var;
+}
+
+@mixin translate($x: 50%, $y: 50%) {
+  transform: translate($x, $y) translateZ(0px);
+}
+
+@mixin rotate($deg: 90) {
+  transform: rotate($deg +deg);
+}
+
+@mixin scale($ammount: 1) {
+  transform: scale($ammount);
+}
+
+@mixin center-position($x: -50%, $y: -50%) {
+  top: 50%;
+  left: 50%;
+
+  @include translate($x, $y);
+}
+
+@mixin abs-center-position($x: -50%, $y: -50%) {
+  position: absolute;
+
+  @include center-position($x, $y);
+}
+
+@mixin shrinkwrap() {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+@mixin disable-touch() {
+  touch-action: none;
+  pointer-events: none;
+  cursor: default;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin disable-select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* -------------------------------------------------
+	               GLOBAL MIXINS ENDS
+------------------------------------------------- */

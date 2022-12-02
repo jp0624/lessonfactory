@@ -1,0 +1,9 @@
+<section
+  ngClass="task-wrapper task task-{{this.activePage?.name}} task-{{this?.activePageId}} page page-type-{{this.activePage?.pagetype}}"
+  [ngStyle]="{
+    'font-family': this?.customFont ? this?.customFont : null
+    }">
+  <article #wrapper ngClass="content-wrapper content-wrapper-{{this.activePage?.pagetype}}">
+    <div #type></div>
+  </article>
+</section>

@@ -1,0 +1,6 @@
+<a
+  [ngClass]="[this?.class ? 'btn btn-' + this?.class : 'btn']"
+  (click)="this.navigationService.nextBtnClick(this?.taskId, 'page')">
+  <app-i *ngIf="this?.icon" [icon]="this.icon"></app-i>
+  <app-span *ngIf="this?.text" [text]="this.text"></app-span>
+</a>

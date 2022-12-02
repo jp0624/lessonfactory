@@ -1,0 +1,439 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+@keyframes flash {
+  0% {
+    color: #333;
+    opacity: 0;
+  }
+  50% {
+    color: #fff;
+    opacity: 1;
+  }
+  100% {
+    color: #333;
+    opacity: 0;
+  }
+}
+
+@keyframes cursor {
+  0% {
+    border-color: 2px solid transparent;
+  }
+  50% {
+    border-bottom: 2px solid #fff;
+  }
+  100% {
+    border-color: 2px solid transparent;
+  }
+}
+
+.distracted {
+  @include abs-center-position();
+  transform: translate(-50%, -50%) translateZ(0px) scale(0);
+  opacity: 0;
+  font-size: 3em;
+  font-weight: 900;
+  transition: 100ms all ease-in-out;
+  width: 100%;
+  text-align: center;
+
+  padding: 5% 0;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  &.complete {
+    transform: translate(-50%, -50%) translateZ(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+.video-wrapper {
+  @include abs-center-position();
+  float: left;
+
+  video {
+    &.videoDriving {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .flash {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: #fff;
+  }
+  &.complete {
+
+    .flash {
+      animation-name: flash;
+      animation-duration: 500ms;
+    }
+
+  }
+}
+
+.speedometer {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(0%, -50%) scale(1);
+
+  font-size: 0.5em;
+  z-index: 10;
+  width: 20%;
+  overflow: hidden;
+  float: left;
+  cursor: pointer;
+  @include disable-select();
+  transition: 500ms all ease-in-out;
+
+  &.complete {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .clickDetect {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .speedometerValue {
+    @include abs-center-position();
+    z-index: 9;
+    em {
+      float: left;
+      clear: both;
+      text-align: center;
+      width: 100%;
+      font-size: 7em;
+      color: #AEDEE9;
+      font-weight: 600;
+    }
+    span {
+      float: left;
+      clear: both;
+      text-align: center;
+      width: 100%;
+      font-size: 1.5em;
+      color: #fff;
+    }
+  }
+  .overlay {
+    top: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .donut {
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    //margin: 2.5% 2.5% 5% 5%;
+
+    &.donut-goal {
+      width: 87.5%;
+      height: 87.5%;
+
+      svg {
+        transform: rotate(-110deg);
+      }
+    }
+    &.donut-widegoal {
+      width: 87.5%;
+      height: 87.5%;
+
+      svg {
+        transform: rotate(-118deg);
+      }
+    }
+    svg {
+      width: 100%;
+      display: block;
+
+      position: relative;
+      transform: rotate(125deg);
+      /*
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%) rotate(140deg);
+      */
+
+      circle {
+        fill: transparent;
+        stroke: transparent;
+        stroke-width: 12%;
+
+        &.foreground {
+          stroke-width: 11%;
+          stroke: $color-main-bg;
+          //transition: stroke-dasharray 500ms ease-in-out 100ms;
+          stroke-dasharray: 0, 500;
+        }
+        &.background {
+          stroke-dasharray: 510, 500;
+          stroke: $color-font;
+        }
+        &.goal {
+          stroke-width: 8.5%;
+          stroke: rgba(174, 222, 233, 1);
+          stroke-dasharray: 10.5, 500;
+          transition: 100ms all ease-in-out;
+
+          &.active {
+            stroke-width: 11%;
+
+          }
+        }
+        &.widegoal {
+          stroke-width: 8.5%;
+          stroke: transparent;
+          stroke-dasharray: 33, 500;
+          transition: 100ms all ease-in-out;
+
+          &.active {
+            stroke: rgba(174, 222, 233, 0.5);
+
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.phone {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(0%, -50%) scale(0);
+
+  z-index: 10;
+  width: 20%;
+  font-size: 0.5em;
+  float: right;
+  opacity: 0;
+  @include disable-select();
+  transition: 500ms all ease-in-out;
+
+  &.complete {
+    transform: translate(0%, -50%) scale(0);
+    opacity: 0;
+  }
+  &.started:not(.complete) {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+
+  }
+  > s {
+    padding-top: 186.3572433192686%;
+  }
+
+  .phone-img {
+    height: 100%;
+    width: 100%;
+  }
+  .phone-display {
+    position: absolute;
+    color: #fff;
+    width: 90%;
+    top: 12.25%;
+    left: 5%;
+
+    > s {
+      padding-top: 41%;
+    }
+    .display-number {
+      @include abs-center-position();
+      white-space: nowrap;
+      text-align: center;
+      font-size: 2em;
+      width: 100%;
+
+      li {
+        position: relative;
+        display: inline-block;
+        margin: 0 1%;
+
+        &.active {
+          &:before {
+            border-bottom: 2px solid #fff;
+            animation-name: cursor;
+            animation-duration: 750ms;
+            animation-iteration-count: infinite;
+          }
+
+        }
+        &:before {
+          color: $color-font;
+          opacity: 1;
+        }
+        &:after {
+          opacity: 0;
+          position: absolute;
+          color: #AEDEE9;
+          left: 0;
+          top: 0;
+
+        }
+        &.done {
+          span {
+            color: #AEDEE9;
+          }
+          &:after {
+            opacity: 0;
+          }
+          &:after {
+            opacity: 1;
+          }
+
+        }
+      }
+    }
+
+  }
+  .phone-keypad {
+    position: absolute;
+    bottom: 9%;
+    left: 5%;
+    width: 90%;
+    float: left;
+    color: #fff;
+
+    li {
+      cursor: pointer;
+      float: left;
+      width: 32%;
+      margin: 0.5%;
+      position: relative;
+      background-color: #333;
+      font-size: 1.75em;
+
+      text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 1px 1px 2.5px rgba(255, 255, 255, 0.25), inset 0px 20px 40px 20px rgba(255, 255, 255, 0.05);
+      transition: 100ms all ease-in-out;
+
+      &.active {
+        color: #aedee9;
+        box-shadow: inset 7px 7px 27.5px 0px rgba(0, 0, 0, 0.5), inset 0px 20px 40px 20px rgba(255, 255, 255, 0.05);
+
+        transition: 75ms all ease-in-out;
+
+        b {
+          transition: 100ms all ease-in-out;
+          transform: translate(2.5%, 2.5%);
+        }
+      }
+      s {
+        padding-top: 72.98578199052133%;
+      }
+      b {
+
+        &:before {
+          @include abs-center-position();
+        }
+      }
+    }
+
+  }
+
+  [class^="icon-"] b, [class*=" icon-"] b {
+    font-family: 'phone-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-func-call b:before {
+    content: "\e900";
+  }
+  .icon-func-del b:before {
+    content: "\e901";
+  }
+  .icon-func-pound b:before {
+    content: "\e902";
+  }
+  .icon-func-star b:before {
+    content: "\e903";
+  }
+  .icon-func-voice b:before {
+    content: "\e904";
+  }
+  .val-space:before,
+  .val-space:after {
+    content: "-";
+  }
+  .val-0:before,
+  .val-0:after,
+  .num-0 b:before {
+    content: "0";
+  }
+  .val-1:before,
+  .val-1:after,
+  .num-1 b:before {
+    content: "1";
+  }
+  .val-2:before,
+  .val-2:after,
+  .num-2 b:before {
+    content: "2";
+  }
+  .val-3:before,
+  .val-3:after,
+  .num-3 b:before {
+    content: "3";
+  }
+  .val-4:before,
+  .val-4:after,
+  .num-4 b:before {
+    content: "4";
+  }
+  .val-5:before,
+  .val-5:after,
+  .num-5 b:before {
+    content: "5";
+  }
+  .val-6:before,
+  .val-6:after,
+  .num-6 b:before {
+    content: "6";
+  }
+  .val-7:before,
+  .val-7:after,
+  .num-7 b:before {
+    content: "7";
+  }
+  .val-8:before,
+  .val-8:after,
+  .num-8 b:before {
+    content: "8";
+  }
+  .val-9:before,
+  .val-9:after,
+  .num-9 b:before {
+    content: "9";
+  }
+}

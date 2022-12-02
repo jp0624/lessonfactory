@@ -1,0 +1,22 @@
+<ng-container *ngIf="this.type && this.content" [ngSwitch]="this?.type">
+  <h1 *ngSwitchCase="'h1'" class="{{ this?.class }} {{ this?.customClass }}">
+      <span>
+        {{ this.content }}
+      </span>
+  </h1>
+  <h2 *ngSwitchCase="'h2'" class="{{ this?.class }} {{ this?.customClass }}">
+      <span>
+        {{ this.content }}
+      </span>
+  </h2>
+  <h3 *ngSwitchCase="'h3'" class="{{ this?.class }} {{ this?.customClass }}">
+      <span>
+        {{ this.content }}
+      </span>
+  </h3>
+  <h4 *ngSwitchCase="'h4'" class="{{ this?.class }} {{ this?.customClass }}">
+      <span>
+        {{ this.content }}
+      </span>
+  </h4>
+</ng-container>

@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+:host {
+
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  .details-wrapper {
+    .canvas-wrapper {
+
+      .icon-wrapper {
+        float: left;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        app-figure {
+          display: inline-block;
+          white-space: nowrap;
+          width: 33%;
+          top: 50%;
+          transform: translate(0%, -50%);
+        }
+
+      }
+    }
+  }
+  .video-wrapper {
+    app-interactivevideoplayer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: block;
+      float: left;
+    }
+
+  }
+  .summary-wrapper {
+  }
+  .details-wrapper,
+  .video-wrapper,
+  .summary-wrapper {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    // background: #666;
+    // border: 1px solid red;
+    padding: 0 0.5em;
+    height: 100%;
+    width: 100%;
+    transition: 1000ms transform ease-in-out;
+    &.slide-next {
+      transform: translate(100%, 0%);
+    }
+    &.slide-active {
+      transform: translate(0%, 0%);
+    }
+    &.slide-prev {
+      transform: translate(-100%, 0%);
+    }
+
+    .header-wrapper {
+      app-header {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}

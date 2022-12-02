@@ -1,0 +1,76 @@
+:host {
+
+  a {
+    color: #fff;
+    transition: 250ms all ease-in-out;
+
+  }
+
+  &.btn-pill {
+    a {
+      float: left;
+      background-color: rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      padding: 0.5em 1em;
+      border-radius: 1em;
+      font-size: 0.75em;
+    }
+  }
+  &.invisible {
+    a {
+      opacity: 0;
+    }
+    &.correct {
+      a {
+        opacity: 1;
+      }
+    }
+  }
+  &.abs-center {
+
+    a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+  }
+  &.size-med {
+    font-size: 3em;
+  }
+  &.correct {
+    a {
+      color: #80ced8;
+    }
+  }
+  i {
+    cursor: pointer;
+
+    &.material-icons {
+      font-family: 'Material Icons' !important;
+      font-weight: normal;
+      font-style: normal;
+      //font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+  }
+}

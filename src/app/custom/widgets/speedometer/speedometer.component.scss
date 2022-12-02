@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+:host {
+}
+
+.speedometer {
+
+  position: relative;
+
+  font-size: 0.5em;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  cursor: pointer;
+  @include disable-select();
+  transition: 500ms all ease-in-out;
+
+  @media screen and (max-width: 769px) {
+    font-size: 0.45em;
+  }
+
+  &.visible {
+
+  }
+  &.complete {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .clickDetect {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .speedometerValue {
+    @include abs-center-position();
+    z-index: 9;
+    em {
+      float: left;
+      clear: both;
+      text-align: center;
+      width: 100%;
+      font-size: 7em;
+      color: #AEDEE9;
+      font-weight: 600;
+    }
+    span {
+      float: left;
+      clear: both;
+      text-align: center;
+      width: 100%;
+      font-size: 1.5em;
+      color: #fff;
+    }
+  }
+  .overlay {
+    top: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .donut {
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    //margin: 2.5% 2.5% 5% 5%;
+
+    &.donut-goal {
+      width: 87.5%;
+      height: 87.5%;
+
+      svg {
+        transform: rotate(-110deg);
+      }
+    }
+    &.donut-widegoal {
+      width: 87.5%;
+      height: 87.5%;
+
+      svg {
+        transform: rotate(-118deg);
+      }
+    }
+    svg {
+      width: 100%;
+      display: block;
+
+      position: relative;
+      transform: rotate(125deg);
+      /*
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%) rotate(140deg);
+      */
+
+      circle {
+        fill: transparent;
+        stroke: transparent;
+        stroke-width: 12%;
+
+        &.foreground {
+          stroke-width: 11%;
+          stroke: $color-main-bg;
+          //transition: stroke-dasharray 500ms ease-in-out 100ms;
+          stroke-dasharray: 0, 500;
+        }
+        &.background {
+          stroke-dasharray: 510, 500;
+          stroke: $color-font;
+        }
+        &.goal {
+          stroke-width: 8.5%;
+          stroke: rgba(174, 222, 233, 1);
+          stroke-dasharray: 10.5, 500;
+          transition: 100ms all ease-in-out;
+
+          &.active {
+            stroke-width: 11%;
+
+          }
+        }
+        &.widegoal {
+          stroke-width: 8.5%;
+          stroke: transparent;
+          stroke-dasharray: 33, 500;
+          transition: 100ms all ease-in-out;
+
+          &.active {
+            stroke: rgba(174, 222, 233, 0.5);
+
+          }
+        }
+
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+@import "../../../../../assets/scss/mixins",
+"../../../../../assets/scss/variables";
+
+section {
+
+  padding: 1.5em;
+
+  &.page-type-question,
+  &.page-type-titlescreen,
+  &.page-type-speedometer {
+    padding: 0;
+  }
+  &.page-type-question {
+    background-color: $color-disabled
+  }
+  article {
+    &.content-wrapper-question {
+      height: 100%;
+    }
+  }
+  header {
+    left: 3.5em;
+    position: relative;
+    width: calc(100% - 3em);
+    margin-bottom: 1em;
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    &.header-page-type-titlescreen {
+      position: absolute;
+      z-index: 2;
+      left: 2em;
+      top: 50%;
+      transform: translate(0%, -100%);
+      color: #fff;
+
+      h1 {
+        font-size: 4em;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,9 @@
+<span *ngIf="answer?.label" class="answer-label" (click)="selectAnswer()">
+    <em>{{ answer?.label }}</em>
+</span>
+<span class="answer-content" [ngClass]="answer.label ? 'label' : 'nolabel'" (click)="selectAnswer()">
+  {{ answer.text }}
+</span>
+<a class="answer-confirm" (click)="confirmAnswer()">
+  <i [ngClass]="this.isRtl ? 'icon-arrow-left' : 'icon-arrow-right'"></i>
+</a>

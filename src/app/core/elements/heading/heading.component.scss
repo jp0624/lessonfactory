@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+.abs-center {
+  width: 85%;
+  text-align: center;
+  @include abs-center-position();
+}
+
+:host {
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  float: left;
+  width: 100%;
+
+  &.marker-standard {
+
+    h4 {
+      font-weight: 600;
+      line-height: 1.25em;
+    }
+  }
+  &.heading-TitlescreenComponent {
+    position: absolute;
+
+    .heading-h1 {
+      font-weight: 700;
+      font-size: 4em;
+      margin-bottom: 0em;
+      line-height: 1.5em !important;
+
+      &.lineheight-inherit {
+        line-height: inherit;
+      }
+      //line-height: 0.95em;
+      // top: 50%;
+      // position: absolute;
+    }
+  }
+
+  .heading-h1 {
+    line-height: normal;
+    margin-bottom: 0.25em;
+
+    float: left;
+    width: 100%;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  .heading-h2 {
+
+    @media screen and (max-width: 769px) {
+      font-size: 1.75em;
+    }
+  }
+}

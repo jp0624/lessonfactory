@@ -1,0 +1,12 @@
+<figcaption
+  *ngIf="this?.heading || this?.text"
+  [ngClass]="[this.class ? this.class : 'idle']"
+  [dir]="this.lessonDataService?.textDir" >
+  <h3 *ngIf="this?.heading">
+    {{this.heading}}
+  </h3>
+  <p *ngIf="this?.text" [innerHTML]="this?.text"> 
+    {{this.text}}
+  </p>
+</figcaption>
+

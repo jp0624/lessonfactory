@@ -1,0 +1,61 @@
+<div class="click-wrapper">
+  <!--
+  <ng-container *ngIf="+this.data.coords.display === 2">
+    <div class="coord"
+      *ngFor="let coord of this.data.coords?.data"
+      [style.width.%]="(100 / 1024) * (coord[this?.activeFrame]?.scaleX * 100)"
+      [style.height.%]="(100 / 504) * (coord[this?.activeFrame]?.scaleY * 100)"
+      [style.left.%]="((100 / 1024) * coord[this?.activeFrame]?.x) - ((100 / 1024) * (coord[this?.activeFrame]?.scaleX * 100) / 2)"
+      [style.top.%]="((100 / 504) * coord[this?.activeFrame]?.y) - ((100 / 504) * (coord[this?.activeFrame]?.scaleY * 100) / 2)">
+    </div>
+  </ng-container>
+  -->
+
+  <app-video
+    class="canvas-video"
+    [videoUrl]="this.data.settings?.src"
+    [videoPoster]="this.data.settings?.poster"
+    [autoPlay]="false"
+    [playsinline]="true"
+    [vidPlay]="this?.vidPlay"
+    [pauseable]="0"
+    [theme]="'assessment'"
+    (videoPercent)="this.vidPercent = $event"
+    (videoComplete)="videoComplete($event)"
+    (videoTime)="videoTime($event)">
+  </app-video>
+  <ng-container>
+    <div class="attemptClick"
+         [ngClass]="[this.activeAttempt?.display ? 'display' : 'hide', this.activeAttempt?.status === 'correct' ? 'correct' : this.activeAttempt?.status === 'wrong' ? 'wrong' : 'idle']"
+         [style.left.%]="this.activeAttempt.x"
+         [style.top.%]="this.activeAttempt.y">
+      <s></s>
+      <b>
+        <i class="material-icons">{{ this.activeAttempt?.status === 'correct' ? 'done' : this.activeAttempt?.status ===
+          'wrong' ? 'clear' : '' }}</i>
+      </b>
+    </div>
+  </ng-container>
+
+  <div class="click-detect" #clickDetect></div>
+</div>
+<div class="score-wrapper">
+  <div class="attempts">
+    <ng-container
+      *ngFor="let attempt of this?.attempts">
+      <div class="attempt"
+           [ngClass]="[attempt?.status === 'correct' ? 'correct' : attempt?.status === 'wrong' ? 'wrong' : 'idle']">
+        <s></s>
+        <b></b>
+      </div>
+    </ng-container>
+  </div>
+  <div class="timeline-wrapper">
+    <div class="timeline"
+         [style.right.%]="this?.vidPercent"></div>
+  </div>
+</div>
+<!--
+<pre>{{ this.vidTime | json }}</pre>
+<pre>{{ this.activeFrame | json }}</pre>
+-->

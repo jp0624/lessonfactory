@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+@import "../../../../../../../assets/scss/mixins",
+"../../../../../../../assets/scss/variables";
+
+:host {
+
+  .click-wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+
+    .click-detect {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+    }
+    .attemptClick {
+      transform: translate(-50%, -50%);
+      width: 5%;
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0;
+      background-color: $color-disabled;
+      transition: 250ms opacity ease-in-out;
+
+      i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.5em;
+
+        &.material-icons {
+          font-family: 'Material Icons' !important;
+          font-weight: normal;
+          font-style: normal;
+          //font-size: 24px;  /* Preferred icon size */
+          display: inline-block;
+          line-height: 1;
+          text-transform: none;
+          letter-spacing: normal;
+          word-wrap: normal;
+          white-space: nowrap;
+          direction: ltr;
+
+          /* Support for all WebKit browsers. */
+          -webkit-font-smoothing: antialiased;
+          /* Support for Safari and Chrome. */
+          text-rendering: optimizeLegibility;
+
+          /* Support for Firefox. */
+          -moz-osx-font-smoothing: grayscale;
+
+          /* Support for IE. */
+          font-feature-settings: 'liga';
+        }
+      }
+      &.display {
+        opacity: 1;
+      }
+      &.correct {
+        background-color: $color-result-true;
+      }
+
+      &.wrong {
+        background-color: $color-result-false;
+      }
+    }
+    .coord {
+      background-color: $color-result-true;
+      opacity: 0.75;
+      z-index: 1;
+      position: absolute;
+      // transform: translate(-50%, -50%)
+    }
+  }
+  .timeline-wrapper {
+    float: left;
+    position: relative;
+    width: 89%;
+    height: 10px;
+    margin: 0.5em 0 0;
+    background-color: $color-disabled;
+
+    .timeline {
+      transform: translate(100%, 0);
+      position: absolute;
+      background-color: $color-main-faded;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .score-wrapper {
+    width: 100%;
+    display: relative;
+
+    .attempts {
+      width: 10%;
+      float: left;
+      position: relative;
+      padding-left: 1%;
+
+      .attempt {
+        float: left;
+        width: 17%;
+        margin: 8% 6%;
+        border-radius: 50%;
+        background-color: $color-disabled;
+
+        &.correct {
+          background-color: $color-result-true;
+        }
+
+        &.wrong {
+          background-color: $color-result-false;
+        }
+      }
+    }
+  }
+}

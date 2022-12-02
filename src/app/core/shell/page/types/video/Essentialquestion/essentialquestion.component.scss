@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@import "../../../../../../../assets/scss/mixins",
+"../../../../../../../assets/scss/variables";
+
+app-heading {
+  background-color: $color-main-bg;
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 15%;
+  margin-bottom: 1.5em;
+  font-size: 0.75em;
+  line-height: normal;
+}
+
+app-essentialanswer {
+  @include disable-select();
+  cursor: pointer;
+  position: relative;
+  width: 70%;
+  float: left;
+  clear: both;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transform-origin: 0 0;
+  margin: 0.5em 0;
+
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  background-color: $color-main-bg;
+  transition: all 250ms ease-in-out;
+  overflow: hidden;
+
+  @media screen and (max-width: 1025px) {
+    width: 77.5%;
+  }
+  @media screen and (max-width: 769px) {
+    width: 85%;
+    font-size: 1.35em;
+  }
+
+  &.selected {
+    transform: scale(1.1) translate(-50%, 0);
+  }
+}
+
+.selection {
+
+  app-essentialanswer {
+
+    &:not(.selected) {
+      transform: scale(0.9) translate(-50%, 0);
+      opacity: 0.5;
+    }
+  }
+}

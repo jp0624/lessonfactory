@@ -1,0 +1,58 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="+this.componentData.contentId === -1 ? this.componentData.content?.heading : this.componentData.timestamps[+this.componentData.contentId].heading">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="[this.initSized && +this.componentData.contentId > 0 ? 'sizeInit' : 'idle']">
+
+    <app-video
+      *ngIf="this.componentData.video?.src.length"
+      [ngClass]="[this.componentData.contentId === -1 ? 'hide' : 'show']"
+      class="canvas-video"
+      [videoUrl]="this.componentData.video?.src"
+      [videoPoster]="this.componentData.video?.poster"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [autoPlay]="true"
+      [playsinline]="true"
+      [pauseable]="0"
+      [vidPlay]="this?.vidPlay"
+      [btnPlay]="true"
+      [timeline]="false"
+      [disableClick]="1"
+      [theme]="this.componentData.settings?.theme"
+      (videoComplete)="videoComplete($event)"
+      (videoTime)="videoTime($event)">
+    </app-video>
+
+    <app-figcaption
+      *ngIf="(+this.componentData.settings.preload === 1) && (+this.componentData.contentId === -1)"
+      [text]="this.componentData.content?.text"
+      class="preload-text"
+      [ngClass]="this.lessonDataService?.textDir">
+    </app-figcaption>
+
+  </div>
+  <div class="content-wrapper"
+       [ngClass]="this.lessonDataService?.textDir" #content>
+
+    <ng-container
+      *ngIf="this.componentData.buttons.length">
+      <div class="btn-wrapper"
+        [ngClass]="+this.componentData.timestamps[this.componentData?.contentId]?.custom_btns ? 'show' : 'hide'">
+        <a *ngFor="let button of this.componentData.buttons" (click)="next()">
+          {{button.title}}
+        </a>
+      </div>
+    </ng-container>
+
+    
+    <app-figcaption
+      [text]="+this.componentData.settings.preload !== 1 && +this.componentData.contentId === -1 ? this.componentData.content.text : this.componentData.timestamps[this.componentData?.contentId]?.text">
+    </app-figcaption>
+  </div>
+</ng-container>

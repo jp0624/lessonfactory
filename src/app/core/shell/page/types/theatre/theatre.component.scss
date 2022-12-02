@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+.canvas-wrapper {
+
+  &.sizeInit {
+    transition: 250ms height ease-in-out;
+
+  }
+}
+
+app-stage {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &.rtl {
+    text-align: right;
+  }
+
+}
+
+.content-wrapper {
+
+  &.rtl {
+    float: right;
+  }
+}
+.button-wrapper {
+
+  .theatre-button {
+    background: #ddd;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.viewed {
+      .bg-load {
+        background-color: #666;
+      }
+    }
+
+    &.active {
+      background-color: $color-green;
+
+      .bg-load {
+        background-color: $color-green;
+      }
+    }
+
+    .bg-load {
+      position: absolute;
+      top: 0;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-100%, 0);
+      background-color: #3e60b3;
+      &.animate {
+      }
+    }
+  }
+}
+
+.content-wrapper {
+  padding-left: 2em;
+  width: calc(98% - 2em);
+
+  &.rtl {
+    padding-left: 0em;
+    padding-right: 2em;
+    width: calc(98% - 2em);
+    float: right;
+  }
+}

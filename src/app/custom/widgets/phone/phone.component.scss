@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+@keyframes cursor {
+  0% {
+    border-color: 2px solid transparent;
+  }
+  50% {
+    border-bottom: 2px solid #fff;
+  }
+  100% {
+    border-color: 2px solid transparent;
+  }
+}
+
+:host {
+  &.visible {
+    .phone {
+      transform: translate(0%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.phone {
+
+  transform: translate(0%, -50%) scale(1);
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+
+  z-index: 10;
+  width: 20%;
+  font-size: 0.5em;
+  float: right;
+  transition: 500ms all ease-in-out;
+
+  > s {
+    padding-top: 186.3572433192686%;
+  }
+
+  .phone-img {
+    height: 100%;
+    width: 100%;
+  }
+  .phone-display {
+    position: absolute;
+    color: #fff;
+    width: 90%;
+    top: 12.25%;
+    left: 5%;
+
+    > s {
+      padding-top: 41%;
+    }
+    .display-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      text-align: center;
+      font-size: 2em;
+      width: 100%;
+
+      @media screen and (max-width: 1025px) {
+        font-size: 1.75em;
+      }
+      @media screen and (max-width: 769px) {
+        font-size: 1.5em;
+      }
+
+      li {
+        position: relative;
+        display: inline-block;
+        margin: 0 1%;
+
+        &.active {
+          &:before {
+            color: #999;
+            border-bottom: 2px solid #999;
+            animation-name: cursor;
+            animation-duration: 750ms;
+            animation-iteration-count: infinite;
+          }
+
+        }
+        &:before {
+          color: #666;
+          opacity: 1;
+          transition: all 150ms ease-in-out;
+        }
+        &:after {
+          opacity: 0;
+          position: absolute;
+          color: #AEDEE9;
+          left: 0;
+          top: 0;
+
+        }
+        &.done {
+          span {
+            color: #AEDEE9;
+          }
+          &:after {
+            opacity: 0;
+          }
+          &:after {
+            opacity: 1;
+          }
+
+        }
+      }
+    }
+
+  }
+  .phone-keypad {
+    position: absolute;
+    bottom: 9%;
+    left: 5%;
+    width: 90%;
+    float: left;
+    color: #fff;
+
+    li {
+      cursor: pointer;
+      float: left;
+      width: 32%;
+      margin: 0.5%;
+      position: relative;
+      background-color: #333;
+      font-size: 1.75em;
+
+      text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 1px 1px 2.5px rgba(255, 255, 255, 0.25), inset 0px 20px 40px 20px rgba(255, 255, 255, 0.05);
+      transition: 100ms all ease-in-out;
+
+      &.active {
+        color: #aedee9;
+        box-shadow: inset 7px 7px 27.5px 0px rgba(0, 0, 0, 0.5), inset 0px 20px 40px 20px rgba(255, 255, 255, 0.05);
+
+        transition: 75ms all ease-in-out;
+
+        b {
+          transition: 100ms all ease-in-out;
+          transform: translate(2.5%, 2.5%);
+        }
+      }
+      s {
+        padding-top: 72.98578199052133%;
+      }
+      b {
+
+        &:before {
+          @include abs-center-position();
+        }
+      }
+    }
+
+  }
+
+  [class^="icon-"] b, [class*=" icon-"] b {
+    font-family: 'phone-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-func-call b:before {
+    content: "\e900";
+  }
+  .icon-func-del b:before {
+    content: "\e901";
+  }
+  .icon-func-pound b:before {
+    content: "\e902";
+  }
+  .icon-func-star b:before {
+    content: "\e903";
+  }
+  .icon-func-voice b:before {
+    content: "\e904";
+  }
+  .val-space:before,
+  .val-space:after {
+    content: "-";
+  }
+  .val-0:before,
+  .val-0:after,
+  .num-0 b:before {
+    content: "0";
+  }
+  .val-1:before,
+  .val-1:after,
+  .num-1 b:before {
+    content: "1";
+  }
+  .val-2:before,
+  .val-2:after,
+  .num-2 b:before {
+    content: "2";
+  }
+  .val-3:before,
+  .val-3:after,
+  .num-3 b:before {
+    content: "3";
+  }
+  .val-4:before,
+  .val-4:after,
+  .num-4 b:before {
+    content: "4";
+  }
+  .val-5:before,
+  .val-5:after,
+  .num-5 b:before {
+    content: "5";
+  }
+  .val-6:before,
+  .val-6:after,
+  .num-6 b:before {
+    content: "6";
+  }
+  .val-7:before,
+  .val-7:after,
+  .num-7 b:before {
+    content: "7";
+  }
+  .val-8:before,
+  .val-8:after,
+  .num-8 b:before {
+    content: "8";
+  }
+  .val-9:before,
+  .val-9:after,
+  .num-9 b:before {
+    content: "9";
+  }
+}

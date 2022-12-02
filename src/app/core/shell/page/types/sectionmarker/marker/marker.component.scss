@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+@import "../../../../../../../assets/scss/mixins",
+"../../../../../../../assets/scss/variables";
+
+:host {
+
+  float: left;
+  position: relative;
+  text-align: center;
+
+  app-heading {
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #555;
+
+    &.marker-standard {
+
+    }
+
+  }
+  &.loaded {
+
+    app-heading {
+      &.marker-sub {
+        transition: 500ms all ease-in-out 250ms;
+        transform: translate(-50%, 200%);
+
+      }
+    }
+  }
+
+  &:nth-child(1) {
+    clear: both;
+  }
+  .mark {
+    width: calc(100% - 0.5em);
+    height: calc(100% - 0.5em);
+    margin: 0.25em;
+    position: relative;
+    content: "";
+    display: block;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 0.2em solid transparent;
+    box-sizing: border-box;
+
+    b {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &.loaded {
+    .mark {
+      transition: 500ms all ease-in-out 400ms;
+      border: 0.2em solid #666;
+    }
+    &.marker-sub {
+
+      .mark {
+        transition: 500ms all ease-in-out 250ms;
+        transform: scale(0.15);
+        border-width: 0.75em;
+        padding-top: calc(100% - 1.5em);
+      }
+    }
+    &.complete {
+      .mark {
+        transition: 500ms all ease-in-out 400ms;
+        border-color: transparent;
+        background-color: #666;
+      }
+      &.marker-standard {
+        app-heading {
+          color: #fff;
+          transition: 500ms all ease-in-out 400ms;
+        }
+      }
+
+    }
+    &.selected {
+      .mark {
+        transition: 500ms all ease-in-out 500ms;
+        border-color: transparent;
+        background-color: $color-cta;
+      }
+      &.marker-standard {
+        app-heading {
+          color: #fff;
+          transition: 500ms all ease-in-out 500ms;
+        }
+      }
+    }
+
+  }
+}
+
+// @keyframes bulgeMarker {
+//     0% {
+//         opacity: 0;
+//         transform: scale3d(0,0,1) translate(0, -50%);
+//     }
+//     50% {
+//         opacity: 1;
+//         transform: scale3d(1.25,1.25,1) translate(0, -50%);
+
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: scale3d(1,1,1) translate(0, -50%);
+//     }
+// }
+// :host {
+//     opacity: 0;
+//     float: left;
+//     position: relative;
+//     top: 50%;
+//     transform: translate(0, -50%);
+//     text-align: center;
+//     padding: 3em;
+
+//     animation-name: bulgeMarker;
+//     animation-duration: 500ms;
+//     animation-delay: 750ms;
+//     animation-iteration-count: 1;
+//     animation-timing-function: ease-out;
+//     animation-fill-mode: forwards;
+
+//     &.selected {
+//         animation-delay: 500ms;
+//     }
+
+//     &.first {
+//         clear: both;
+//     }
+
+//     app-figure{
+//         width: 100%;
+//         float: left;
+
+//     }
+//     app-heading{
+//         width: 100%;
+//         float: left;
+//         clear: both;
+//         color: $color-disabled;
+
+//         &.marker-heading {
+//             position: relative;
+//         }
+//         &.marker-active {
+//             color: $color-cta;
+//             animation-delay: 750ms;
+//         }
+//     }
+
+// }

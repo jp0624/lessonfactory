@@ -1,0 +1,82 @@
+:host {
+  .canvas-wrapper {
+
+    app-figcaption {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: none;
+      width: 92%;
+      left: 2em;
+      &.rtl {
+        left: initial;
+        right: 2em;
+        text-align: right;
+      }
+
+    }
+  }
+  .content-wrapper {
+
+    &.rtl {
+      float: right;
+    }
+    app-figcaption {
+      position: relative;
+      width: 92%;
+      left: 2em;
+      float: left;
+      width: 100%;
+
+      &.rtl {
+        left: initial;
+        right: 2em;
+        text-align: right;
+      }
+    }
+  }
+}
+
+// :host {
+//   .canvas-wrapper {
+//     float:left;
+//     width: 49%;
+//     app-figcaption {
+//       transform: translate(0, -50%);
+//       transition: none;
+//       width:100%;
+//       left: 2em;    
+//       &.rtl {
+//         left: initial;
+//         right: 2em;
+//         text-align: right;
+//       }
+//     }
+//   }
+//   .content-wrapper {
+//     position: absolute;
+//     top: 30%;
+//     left: 50%;
+//     float:right;
+//     width: 49%;
+//     overflow: auto;
+//     padding-bottom: 5%;
+//     line-height: 1em;
+//     word-spacing: normal;
+//     &.rtl {
+//       float: right;
+//     }
+//     app-figcaption {
+//       position: relative;
+//       overflow: auto;
+//       height: 100%;      
+//       float: left;
+//       width:100%;
+//       &.rtl {
+//         left: initial;
+//         right: 2em;
+//         text-align: right;
+//       }
+//     }
+//   }
+// }

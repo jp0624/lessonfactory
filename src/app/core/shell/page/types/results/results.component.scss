@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+:host {
+  .canvas-wrapper {
+    .canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .sub-heading {
+
+        margin: 1.5em 0 0.5em;
+      }
+      .category-wrapper {
+        width: 100%;
+
+        .category {
+          width: 33%;
+          float: left;
+          text-align: center;
+          margin-bottom: 1.5em;
+          font-size: 0.75em;
+
+          app-figure {
+            width: 40%;
+            margin: 0% 30%;
+            float: left;
+          }
+        }
+      }
+    }
+  }
+  > .overall-wrapper {
+    position: absolute;
+    float: left;
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+    padding: 1em 1em 0.5em;
+    background-color: $color-lightblue;
+    color: #fff;
+    font-weight: 600;
+
+    em {
+      font-size: 3em;
+    }
+  }
+  .lg-overall-wrapper {
+    height: 100%;
+
+    &.pass {
+      .donut-wrapper {
+        .circle-front {
+          stroke: $color-lightblue;
+        }
+      }
+    }
+    &.fail {
+      .donut-wrapper {
+        .circle-front {
+          stroke: $color-result-false;
+        }
+      }
+    }
+    .message-wrapper {
+      float: left;
+      white-space: nowrap;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      font-size: 1.5em;
+
+      em {
+        font-weight: 600;
+      }
+    }
+    .btn-retry {
+      float: left;
+      clear: both;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
+      padding: 0.5em 2em;
+      border: $color-blue 0.1em solid;
+      margin: 1em 0 0;
+      border-radius: 1em;
+      color: $color-blue;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 250ms all ease-in-out;
+
+      &:hover {
+        background-color: $color-blue;
+        color: #fff;
+
+      }
+    }
+    .donut-wrapper {
+      position: relative;
+      width: 30%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+
+      @media screen and (max-width: 769px) {
+        transform: translate(-50%, -50%);
+        width: 50%;
+        top: 50%;
+      }
+
+      .percent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+
+        font-size: 3.5em;
+        font-weight: 900;
+
+        transform: translate(-50%, -50%);
+        float: left;
+        white-space: nowrap;
+      }
+      .donut {
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+      circle {
+        fill: none;
+      }
+      .circle-back {
+        stroke: #f2f2f2;
+        stroke-width: 20px;
+      }
+
+      .circle-front {
+        stroke: #f2f2f2;
+        transform: rotate(0deg);
+        stroke-width: 20px;
+        stroke-dasharray: 0, 500;
+        transition: stroke-dasharray 500s ease;
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,65 @@
+:host {
+  left: 3.5em;
+  width: calc(100% - 3.5em);
+  position: relative;
+  float: left;
+  &.nav-hidden {
+    left: 0em;
+    width: calc(100%);
+  }
+
+  &.rtl {
+    left: 0em;
+  }
+  &.header-TitlescreenComponent {
+    //padding-right: 4em;
+    &.chars25 {
+      app-heading {
+        left: 0;
+
+        &.heading-h1 {
+          font-size: 0.65em;
+
+        }
+      }
+    }
+    app-heading {
+      transform: rotateX(-90deg) scale3d(1, 0, 0) translate(0%, 0);
+      transform-origin: 0% 50%;
+      transition-property: opacity, transform;
+      transition-timing-function: ease-in-out;
+      transition-duration: 450ms;
+      opacity: 0;
+    }
+    &.loaded {
+      app-heading {
+        transform: rotateX(0deg) scale3d(1, 1, 1) translate(0%, 0);
+        transition-delay: 100ms;
+        opacity: 1;
+        & ~ app-heading {
+          transition-delay: 200ms;
+        }
+
+      }
+    }
+  }
+
+  app-heading {
+    &.heading-TitlescreenComponent {
+      // position: absolute;
+      // z-index: 2;
+      // top: 50%;
+      // transform: translate(0%, -100%);
+      // left: 2em;
+      left: 0;
+      float: left;
+      clear: both;
+      position: relative;
+      color: #fff;
+      clear: both;
+      width: 100%;
+
+    }
+
+  }
+}

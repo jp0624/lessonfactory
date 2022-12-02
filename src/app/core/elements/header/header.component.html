@@ -1,0 +1,41 @@
+<ng-container *ngIf="this.activePage?.pagetype === 'TitlescreenComponent'">
+  <app-heading
+    *ngIf="this?.subheading && +this?.reverse === 1"
+    class="heading-h2"
+    [ngClass]="this.activePage?.pagetype ? 'heading-' + this.activePage?.pagetype : 'heading-generic'"
+    [type]="'h2'"
+    [content]="this.subheading">
+  </app-heading>
+  <app-heading
+    *ngIf="this?.heading"
+    class="heading-h1"
+    [customClass]="+this.reverse === 1 ? 'lineheight-inherit' : 'lineheight-normal'"
+    [ngClass]="[this.activePage?.pagetype ? 'heading-' + this.activePage?.pagetype : 'heading-generic', +this.reverse ? 'reverse' : 'stadard']"
+    [type]="'h1'"
+    [content]="this.heading">
+  </app-heading>
+  <app-heading
+    *ngIf="this?.subheading && +this?.reverse !== 1"
+    class="heading-h2"
+    [ngClass]="this.activePage?.pagetype ? 'heading-' + this.activePage?.pagetype : 'heading-generic'"
+    [type]="'h2'"
+    [content]="this.subheading">
+  </app-heading>
+</ng-container>
+
+<ng-container *ngIf="this.activePage?.pagetype !== 'TitlescreenComponent'">
+  <app-heading
+    *ngIf="this?.heading"
+    class="heading-h1"
+    [ngClass]="this.activePage?.pagetype ? 'heading-' + this.activePage?.pagetype : 'heading-generic'"
+    [type]="'h1'"
+    [content]="this.heading">
+  </app-heading>
+  <app-heading
+    *ngIf="this?.subheading"
+    class="heading-h2"
+    [ngClass]="this.activePage?.pagetype ? 'heading-' + this.activePage?.pagetype : 'heading-generic'"
+    [type]="'h2'"
+    [content]="this.subheading">
+  </app-heading>
+</ng-container>

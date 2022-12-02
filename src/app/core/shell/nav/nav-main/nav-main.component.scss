@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+@import "../../../../../assets/scss/mixins",
+"../../../../../assets/scss/variables";
+
+:host {
+  &.rtl {
+    header {
+      .toggle-nav {
+        left: normal;
+        right: 2.5%;
+      }
+    }
+  }
+}
+
+header {
+  position: absolute;
+  width: 100%;
+
+  &.expanded {
+    app-nav-progress {
+      transform: translate(0%, 0%);
+    }
+
+    &.demo {
+      .toggle-nav {
+        color: #fff;
+        transform: translate(0%, 0%);
+      }
+
+    }
+    .toggle-nav {
+      transform: translate(0%, -100%);
+    }
+  }
+  &.hide {
+    &.home {
+      transition: transform 0ms ease-out 0ms;
+    }
+    .toggle-nav {
+      transform: translate(0%, -110%);
+    }
+  }
+  app-nav-progress {
+    &.demo-nav-progress {
+      height: 2.5em;
+    }
+    position: absolute;
+    z-index: 100;
+
+    width: 100%;
+    height: 5em;
+    background-color: $color-brand;
+
+    transform: translate(0%, -105%);
+    transition: transform 250ms ease-out 0ms;
+  }
+  &.demo {
+    .toggle-nav {
+      cursor: pointer;
+      z-index: 101;
+      float: left;
+      font-size: 2em;
+      position: absolute;
+      top: 0.15em;
+      left: 0.5em;
+      color: #cc3334;
+      transition: transform 250ms ease-out 0ms;
+      transform: translate(0%, 0%);
+      s {
+        display: none;
+      }
+      b {
+        position: relative;
+      }
+    }
+    app-router {
+      cursor: pointer;
+      z-index: 99;
+      float: left;
+      font-size: 2em;
+      position: absolute;
+      top: 0.15em;
+      right: 0.5em;
+      color: $color-cta;
+      transition: transform 250ms ease-out 0ms;
+      transform: translate(0%, 0%);
+    }
+
+  }
+  &.standard {
+
+    app-router {
+      display: none;
+    }
+    .toggle-nav {
+      z-index: 99;
+      width: 2.5em;
+      cursor: pointer;
+      float: left;
+      position: absolute;
+      top: 0;
+      left: 2.5%;
+      border-radius: 0 0 $border-radius-buttons $border-radius-buttons;
+      background-color: #cc3334;
+      border-left: 1px solid rgba(0, 0, 0, 0.07);
+      border-right: 1px solid rgba(0, 0, 0, 0.07);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+      transition: transform 250ms ease-out 0ms;
+      transform: translate(0%, 0%);
+      s {
+        padding-top: 160%;
+      }
+      b {
+        span {
+          position: absolute;
+          left: 50%;
+          font-size: 1.75em;
+          font-weight: 600;
+          color: #ffffff;
+          transform: translate(-50%, 0%);
+          bottom: -0.15em;
+        }
+      }
+    }
+  }
+}

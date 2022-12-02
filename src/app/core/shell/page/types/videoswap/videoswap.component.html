@@ -1,0 +1,90 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.componentData.settings?.heading">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="[this.initSized && +this.componentData.contentId > 0 ? 'sizeInit' : 'idle', this?.activeClass ? this.activeClass : '']">
+
+    <div class="display-wrapper"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [ngClass]="[this.componentData.contentId === -1 ? 'hide' : 'show']">
+      <ng-container *ngFor="let video of this.componentData.videos; let i = index">
+        <div [ngClass]="'vid-container ' + video.class">
+          <app-video
+            class="canvas-video"
+            [videoUrl]="video?.url"
+            [videoPoster]="video.poster"
+            [autoPlay]="true"
+            [playsinline]="true"
+            [pauseable]="0"
+            [vidPlay]="this?.vidPlay"
+            [btnPlay]="true"
+            [timeline]="false"
+            [disableClick]="1"
+            [loopTime]="10"
+            [startTime]="0"
+            (videoComplete)="videoComplete($event)"
+            (videoTime)="videoTime($event)">
+          </app-video>
+        </div>
+      </ng-container>
+      <!--
+      <app-video
+        *ngIf="this.componentData.video?.src.length"
+        [ngClass]="[this.componentData.contentId === -1 ? 'hide' : 'show']"
+        class="canvas-video"
+        [videoUrl]="this.componentData.video?.src"
+        [videoPoster]="this.componentData.video?.poster"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y"
+        [autoPlay]="true"
+        [playsinline]="true"
+        [pauseable]="0"
+        [vidPlay]="this?.vidPlay"
+        [btnPlay]="true"
+        [timeline]="false"
+        [disableClick]="1"
+        [theme]="this.componentData.settings?.theme"
+        (videoComplete)="videoComplete($event)"
+        (videoTime)="videoTime($event)">
+      </app-video>
+      <app-figcaption
+        *ngIf="(+this.componentData.settings.preload === 1) && (+this.componentData.contentId === -1)"
+        [text]="this.componentData.content?.text"
+        class="preload-text"
+        [ngClass]="this.lessonDataService?.textDir">
+      </app-figcaption>
+      -->
+      <ng-container *ngFor="let button of this.componentData.buttons">
+        <div [innerHTML]="button.svg| safeHtml"
+          class="btn-wrapper"
+          [ngClass]="'btn-' + button.class"
+          (mousedown)="toggleClass(button.class)"
+          (touchstart)="toggleClass(button.class)"
+          (mouseup)="clearClass(); viewCount();"
+          (touchend)="clearClass(); viewCount();"></div>
+        <div [innerHTML]="button.css| safeHtml"></div>
+      </ng-container>
+    </div>
+
+    
+      <app-figcaption
+        *ngIf="(+this.componentData.settings.preload === 1) && (+this.componentData.contentId === -1)"
+        [text]="this.componentData.settings?.content"
+        class="preload-text"
+        [ngClass]="this.lessonDataService?.textDir">
+      </app-figcaption>
+
+  </div>
+  <div class="content-wrapper"
+       [ngClass]="this.lessonDataService?.textDir" #content> 
+    <app-figcaption
+      [text]="+this.componentData.contentId !== -1 ? this.componentData.content.text : ''">
+    </app-figcaption>
+  </div>
+</ng-container>

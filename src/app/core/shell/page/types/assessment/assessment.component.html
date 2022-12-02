@@ -1,0 +1,11 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="assessment-wrapper">
+    <!--<pre>{{ this.assessment | json }}</pre>-->
+    <app-question
+      *ngFor="let question of this.assessment.questions; let i = index"
+      [ngClass]="this.assessment.settings.activeQuestion === i ? 'question-active' : this.assessment.settings.activeQuestion > i ? 'question-prev' : this.assessment.settings.activeQuestion < i ? 'question-next' : 'question-idle'"
+      [questionData]="question"
+      (answered)="next($event, i)">
+    </app-question>
+  </div>
+</ng-container>

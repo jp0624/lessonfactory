@@ -1,0 +1,11 @@
+<ng-container *ngIf="this?.type === 'material-icon'">
+  <i class="material-icons">
+    {{ this?.icon }}
+  </i>
+</ng-container>
+<ng-container *ngIf="this?.type !== 'material-icon'">
+  <a class="btn btn-{{this?.class}}">
+    <app-i *ngIf="this?.icon" [icon]="this.icon"></app-i>
+    <app-span *ngIf="this?.text" [text]="this.text"></app-span>
+  </a>
+</ng-container>

@@ -1,0 +1,49 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.scenes[this.activeScene]?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="[this.initSized ? 'sizeInit' : 'idle']"
+       dir="ltr">
+    <app-stage
+      [attr.dir]="this.lessonDataService?.textDir"
+      (click)="this.nextScene()"
+      [activeClass]="this.scenes[this.activeScene]?.activeClass"
+      [activeCss]="this.scenes[this.activeScene]?.activeCss"
+      [html]="this.stage?.html"
+      [css]="this.stage?.css"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [ngClass]="this.scenes[this.activeScene]?.activeClass ? 'scene ' + this.scenes[this.activeScene]?.activeClass : 'scene'">
+    </app-stage>
+    <ng-container *ngIf="this.buttons?.length">
+      <div class="button-wrapper"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y">
+        <div *ngFor="let button of this.buttons"
+          class="theatre-button"
+          [ngClass]="[button?.class ? 'theatre-' + button.class : 'theatre-null', button?.viewed ? ' viewed' : ' not-viewed', this?.lockButtons ? 'locked' : 'unlocked']"
+          [ngClass]="'theatre-' + button.class"
+          (click)="this.buttonClick(button)">
+          <span class="bg-load"
+            [style.left.%]="this?.leftPosi"></span>
+          <i [ngClass]="button.icon"></i>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div
+    class="content-wrapper {{this.scenes[this.activeScene]?.activeClass}}"
+    [ngClass]="this.lessonDataService?.textDir" #content>
+    <app-figcaption
+      [text]="this.scenes[this.activeScene]?.text">
+    </app-figcaption>
+  </div>
+</ng-container>

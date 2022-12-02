@@ -1,0 +1,90 @@
+<ng-container *ngIf="this?.activePage">
+  <span [innerHTML]="this.activePage.content[0].settings?.css | safeHtml"></span>
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.activePage.content[0].content?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+        [style.width.px]="this.canvasSize?.x"
+        [style.height.px]="this.canvasSize?.y">
+      <div class="loader-wrapper"
+        *ngIf="!this?.sequenceLoadComplete"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y">
+        <div class="loader">
+          <div class="loader-bar"
+            [style.left]="100 / this.sequenceToLoad * this.sequenceLoaded + '%'"></div>
+        </div>
+      </div>
+    <div class="sequence-wrapper"
+      *ngIf="this?.sequenceLoadComplete"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [style.background-image]="'url(' + this.globalService.assetsurl + this?.sequencePath + '/' + this?.sequenceStartImg + ')'"
+      [style.background-size]="'cover'">
+      <ng-container *ngIf="this.initComplete === true">
+        <ng-container *ngFor="let image of this.sequence, let i = index">
+          <app-figure
+            [attr.data-index]="i"
+            [ngClass]="{'show': this.activeSequenceImg == i}"
+            [imgSrc]="this.sequencePath + '/' + image">
+          </app-figure>
+        </ng-container>
+      </ng-container>
+      <div class="slidecontainer">
+        <div class="scroll-icon scroll-start"
+          [ngClass]="{'complete': this.rangeStart}">
+            <s></s>
+            <b>
+              <span [innerHTML]="this.activePage.content[0].icons?.start | safeHtml"></span>
+            </b>
+        </div>
+        <div class="rangeWrapper"
+          #rangeWrapper>
+          <div class="range"
+            #range>
+            <div class="rangeThumb"
+              [ngStyle]="{'left': this.thumbPos.x + '%'}"
+              #rangeThumb>
+                <s></s>
+                <b
+                  [ngStyle]="{'background': 'url(' + this.globalService.assetsurl + this.activePage.content[0].icons?.scrubber + ')'}">
+                </b>
+              </div>
+          </div>
+          <div class="clickShield"
+            (mousedown)="rangeTouchStart($event); $event.stopPropagation()"
+            (mousemove)="rangeTouchMove($event); $event.stopPropagation()"
+            (mouseup)="rangeTouchEnd($event); $event.stopPropagation()"
+            (touchstart)="rangeTouchStart($event); $event.stopPropagation()"
+            (touchmove)="rangeTouchMove($event); $event.stopPropagation()"
+            (touchend)="rangeTouchEnd($event); $event.stopPropagation()"
+            #shield></div>
+        </div>
+        <!-- <input type="range"
+          [min]="0"
+          [max]="this.sequence?.length - 1"
+          [value]="this.sequence?.length / 2"
+          (input)="updateRangeData(range)"
+          class="slider"
+          #range> -->
+        <div class="scroll-icon scroll-end"
+        [ngClass]="{'complete': this.rangeEnd}">
+          <s></s>
+          <b>
+              <span [innerHTML]="this.activePage.content[0].icons?.end | safeHtml"></span>
+          </b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-wrapper" #content>
+    <app-figcaption
+      [text]="this.activePage.content[0].content?.initial_text">
+    </app-figcaption>
+  </div>
+</ng-container>

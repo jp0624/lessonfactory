@@ -1,0 +1,31 @@
+<nav
+  class="nav-header"
+  [ngClass]="[this.lessonDataService?.textDir ? this.lessonDataService?.textDir : '', this?.mode ? 'nav-header-' + this?.mode : '']">
+  <ng-container *ngIf="this.mode === 'standard'">
+    <app-standard
+      [icon]="'home'"
+      [class]="'home'"
+      (click)="gotoUrl()">
+    </app-standard>
+    <app-standard
+      [icon]="'arrow-up'"
+      [class]="'arrow-up'"
+      (click)="this.shellService.toggleMainNav('toggle', false)">
+    </app-standard>
+  </ng-container>
+
+  <ng-container *ngIf="this.mode === 'demo'">
+    <ul>
+      <ng-container *ngFor="let page of this.lessonDataService?.dataLoaded; let i = index">
+        <li *ngIf="+page.display_innav">
+          <app-router
+            [class]="this?.mode + ' nav-' + page.task_id + ' nav-' + this?.mode"
+            [taskId]="i"
+            [text]="page.name"
+            [type]="'id'">
+          </app-router>
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
+</nav>

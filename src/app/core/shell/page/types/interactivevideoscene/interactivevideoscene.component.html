@@ -1,0 +1,53 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="details-wrapper"
+       *ngIf="this.videoscene.details?.content"
+       [ngClass]="this.contentId === 0 ? 'slide-active' : this.contentId > 0 ? 'slide-prev' : this.contentId < 0 ? 'slide-next' : 'slide-idle'">
+    <div class="header-wrapper" #header>
+      <app-header
+        [heading]="this.videoscene.details?.heading">
+      </app-header>
+    </div>
+    <div class="canvas-wrapper" #canvas
+         [style.width.px]="this.canvasSize?.x"
+         [style.height.px]="this.canvasSize?.y">
+      <div class="icon-wrapper"
+           [style.width.px]="this.figureSize?.x"
+           [style.height.px]="this.figureSize?.y">
+        <app-figure
+          *ngFor="let icon of this.videoscene.details?.icons"
+          [ngClass]="'compentancy-figure ' + 'compentancy-' + icon.type"
+          [imgSrc]="icon.src">
+        </app-figure>
+      </div>
+    </div>
+    <div class="content-wrapper" #content>
+      <app-figcaption
+        [text]="this.videoscene.details?.content">
+      </app-figcaption>
+    </div>
+  </div>
+  <div class="video-wrapper"
+       *ngIf="this.videoscene.video.settings?.src"
+       [ngClass]="this.contentId === 1 ? 'slide-active' : this.contentId > 1 ? 'slide-prev' : this.contentId < 1 ? 'slide-next' : 'slide-idle'">
+    <div class="header-wrapper" #header>
+      <app-header
+        [heading]="this.videoscene.video?.heading">
+      </app-header>
+    </div>
+    <app-interactivevideoplayer
+      [active]="this.contentId === 1 || (this.content.length === 1 && this.contentId > 1) ? true : false"
+      [data]="this.videoscene?.video"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [vidPlay]="this?.vidPlay"
+      (stepComplete)="scoreComplete($event)">
+    </app-interactivevideoplayer>
+  </div>
+  <app-resultsscreen class="summary-wrapper"
+                     *ngIf="this.videoscene?.summary"
+                     [data]="this.videoscene?.summary"
+                     [wrapperSize]="this.wrapperSize"
+                     [scoring]="this.videoscene.video?.score"
+                     [ngClass]="this.contentId === 2 || (this.content.length === 2 && this.contentId > 2) ? 'slide-active' : this.contentId > 2 ? 'slide-prev' : this.contentId < 2 ? 'slide-next' : 'slide-idle'">
+  </app-resultsscreen>
+</ng-container>

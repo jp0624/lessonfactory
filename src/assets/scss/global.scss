@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+@import "reset.min",
+"base",
+"fonts",
+"icons",
+"mixins",
+"variables",
+"animations";
+
+/* -----------------------------------------------------------------------------------------------------
+                                     STRUCTURE STARTS
+----------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------
+	               STRUCTURE ENDS
+------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------------------------------
+                                     GLOBAL TASKS STARTS
+----------------------------------------------------------------------------------------------------- */
+html,
+body {
+  overflow: hidden;
+}
+.page {
+  height: 100%;
+  width: 100%;
+  font-family: 'Noto Sans', 'NotoLocal', sans-serif;
+  // font-family: 'montserrat', 'Noto Sans', 'NotoLocal', sans-serif;
+  color: $color-font;
+
+  h1, h2, h3 {
+    font-weight: 600;
+  }
+
+  div.page-wrapper {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: $color-main-faded;
+    }
+
+    nav.lesson-nav {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+/* -------------------------------------------------
+	               GLOBAL TASKS ENDS
+------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------------------------------
+                                     INTRO TASK STARTS
+----------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------
+	               INTRO TASK ENDS
+------------------------------------------------- */
+/*content testing css added*/
+.liclass{
+  margin: 20px !important;
+  color:yellow;
+  list-style-type: disc !important;
+  list-style-position: outside !important ;
+  font-weight: bold;
+  text-transform: uppercase;
+ }
+ .olclass{
+  margin: 50px !important;
+  color:blue;
+  list-style-type: upper-roman !important;
+  list-style-position: outside !important ;
+  font-weight: bold;
+  text-transform: capitalize;
+ }
+.imgClass{
+  border: 1px solid goldenrod;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+.imgClass:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.blockquoteClass {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019" !important;
+}
+.blockquoteClass:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+.blockquoteClass p {
+  display: inline;
+}
+
+.quoteClass {
+  quotes: '"' '"' "'" "'";
+}
+.quoteClass::before {
+  content: open-quote;
+}
+.quoteClass:after {
+  content: close-quote;
+}
+#divAppFigContainer > app-figcaption > ul > li {
+  list-style-type: disc !important;
+  margin-left: 35px;
+  padding: 14px 0;
+  text-align: justify;
+}
+
+#divAppFigContainer > app-figcaption > ol > li {
+  list-style-type: decimal !important;
+  margin-left: 35px;
+  padding: 14px 0;
+  text-align: justify;
+}
+
+#divAppFigContainer > app-figcaption > P {
+  padding: 14px 0;
+  line-height: 1.5em;
+  text-align: justify;
+}

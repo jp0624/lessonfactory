@@ -1,0 +1,18 @@
+<app-heading
+  [type]="'h4'"
+  [content]="this.question?.text"
+  [class]="'abs-center question-heading'"
+>
+</app-heading>
+<div [ngClass]="{'selection': this?.selected >= 0 }">
+  <app-answer
+    *ngFor="let answer of this.answers; let i = index; let first = first; let last = last"
+    [ngClass]="{'first': first, 'last': last, 'selected': this.selected === i}"
+    [answer]="answer"
+    [id]="i"
+    (answered)="submitAnswer($event)"
+    (selected)="selectAnswer($event)">
+  </app-answer>
+</div>
+
+<!--<pre>{{ this.bookmarkService.bookmarkTest | json }}</pre>-->

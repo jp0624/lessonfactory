@@ -1,0 +1,61 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y">
+
+    <ul *ngIf="this.assessment.settings?.type === 'toggle-src'" class="toggle-wrapper">
+      <s></s>
+      <b>
+        <li *ngFor="let video of this.assessment?.videos; let i = index" (click)="changeSrc(video.src)"
+            [ngClass]="'toggle toggle-' + video.name">
+          <s></s>
+          <b>
+            <span>{{ video.name }}</span>
+          </b>
+        </li>
+      </b>
+    </ul>
+
+    <app-video
+      *ngIf="this.assessment?.videos.length"
+      class="canvas-video"
+      [videoUrl]="this?.videoSrc"
+      [videoPoster]="this.assessment?.videos[0].poster"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [markers]="this.assessment?.markers"
+      [autoPlay]="false"
+      [playsinline]="true"
+      [pauseable]="this.assessment.settings?.pauseable"
+      [vidPlay]="this?.vidPlay"
+      [btnPlay]="this?.btnPlay"
+      [timeline]="true"
+      [theme]="'assessment'"
+      (videoComplete)="videoComplete($event)"
+      (videoTime)="videoTime($event)">
+    </app-video>
+
+  </div>
+  <div class="content-wrapper" #content>
+  </div>
+  <div class="question-wrapper" *ngIf="this?.displayQuestion" [ngClass]="{'showQuestion': this?.videoPaused  }">
+    <app-heading
+      [type]="'h4'"
+      [content]="this.assessment.questions[this.activeQuestion].question.text"
+      [class]="'abs-center question-heading'"
+    >
+    </app-heading>
+    <div [ngClass]="{'selection': this?.selected >= 0 }">
+      <app-answer
+        *ngFor="let answer of this.assessment.questions[this.activeQuestion].answers; let i = index; let first = first; let last = last"
+        [ngClass]="{'first': first, 'last': last, 'selected': this.selected === i}"
+        [answer]="answer"
+        [id]="i"
+        (answered)="next($event, i)"
+        (selected)="selectAnswer($event)">
+      </app-answer>
+    </div>
+  </div>
+</ng-container>

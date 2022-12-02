@@ -1,0 +1,14 @@
+<ng-container *ngIf="this.lessonDataService?.dataLoaded">
+  <header
+    [ngClass]="{'expanded': this.shellService.mainNav.status, 'home': (this?.activePageId === 0), 'show': this.activePage.display_main, 'hide': !this.activePage.display_main}">
+    <a class="toggle-nav" (click)="this.shellService.toggleMainNav('toggle', false)">
+      <s></s>
+      <b>
+              <span>
+                  <i class="icon-more"></i>
+              </span>
+      </b>
+    </a>
+    <app-nav-progress></app-nav-progress>
+  </header>
+</ng-container>

@@ -1,0 +1,22 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="headings">
+    <app-heading
+      *ngIf="this.activePage.content[0].headings.heading"
+      class="heading-h1"
+      [type]="'h1'"
+      [content]="this.activePage.content[0].headings?.heading">
+    </app-heading>
+    <app-heading
+      *ngIf="this.activePage.content[0].headings.subheading"
+      class="heading-h4"
+      [type]="'h4'"
+      [content]="this.activePage.content[0].headings?.subheading">
+    </app-heading>
+    <app-heading
+      *ngIf="this.activePage.content[0].headings.text"
+      class="heading-h2"
+      [type]="'h2'"
+      [content]="this.activePage.content[0].headings?.text">
+    </app-heading>
+  </div>
+</ng-container>

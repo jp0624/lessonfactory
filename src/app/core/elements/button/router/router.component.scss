@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@import "../../../../../assets/scss/mixins",
+"../../../../../assets/scss/variables";
+
+:host {
+  &.demo-next {
+    a {
+      &.btn-demo {
+        color: $color-cta;
+      }
+    }
+  }
+  &.router-TitlescreenComponent {
+    .btn-continue {
+      margin-top: 1em;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: 50% 50%;
+
+      transition: opacity 400ms ease-in-out 300ms, transform 400ms ease-in-out 300ms, background-color 150ms ease-in-out 0ms, color 150ms ease-in-out 0ms;
+
+      &.lessonType-demo {
+        margin-left: 0;
+        color: #fff;
+        background-color: $color-cta;
+        font-size: 0.75em;
+        padding: 0.5em 1.75em;
+        &:hover {
+          transition: opacity 250ms ease-in-out 0ms;
+          opacity: 0.75;
+        }
+      }
+    }
+    &.loaded {
+      .btn-continue {
+        transition-duration: 450ms;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  }
+
+}
+
+.btn-continue {
+  position: relative;
+  display: block;
+  float: left;
+  color: #333;
+  background-color: #fff;
+  border-radius: 3em;
+  padding: 0.4em 1.75em;
+  padding: 2em 0;
+  font-size: 0.5em;
+  line-height: 1.5em;
+  margin-left: 0.5em;
+  //margin-top: 2em;
+  overflow: hidden;
+  transition: background-color 250ms ease-out 0ms, color 250ms ease-out 0ms, border-color 250ms ease-out 0ms;
+  cursor: pointer;
+
+  width: 100%;
+  text-align: center;
+  font-size: 0.6em;
+  padding: 0.5em 1.25em;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+}

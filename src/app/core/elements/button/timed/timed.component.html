@@ -1,0 +1,23 @@
+<a class="btn btn-timed btn-timed-{{this?.class}} {{this?.class}}"
+   [ngClass]="{'enabled': this?.status, 'disabled': !this?.status, 'hide': this.btnData?.hide}"
+   (click)="this.btnClicked()">
+  <s></s>
+  <b>
+    <ng-container
+      *ngIf="this.btnData.lock === 'time-page' || this.btnData.lock === 'time-char' || this.btnData.lock === 'none'">
+        <span class="bg-load"
+              [style.transition-duration]="this?.transitionTime + 'ms'"
+              [ngClass]="{'animate': this.animate}">
+        </span>
+    </ng-container>
+    <ng-container *ngIf="this.btnData.lock === 'download'">
+        <span class="bg-load"
+              [style.left]="this?.download + '%'"
+              [style.transition-duration]="'0ms'">
+        </span>
+    </ng-container>
+    <em *ngIf="this.text">{{this?.text}}</em>
+    <app-i [icon]="this?.icon"></app-i>
+  </b>
+</a>
+<!-- {{ this?.btnData | json }} -->

@@ -1,0 +1,66 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.chart.content?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       dir="ltr"
+       [ngClass]="[this?.pageLoaded ? 'loaded' : 'notload']">
+    <div class="chart-wrapper">
+      <!--
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y">
+      -->
+      <div class="chart">
+        <ul class="series-headings">
+          <li *ngFor="let item of this.chart.series"
+              class="item-heading"
+              [style.height.%]="100 / this.chart.series.length">
+            <span>
+              {{ item.title }}
+            </span>
+          </li>
+        </ul>
+        <div class="data">
+          <ul class="chart-markers">
+            <li *ngFor="let marker of this.chart.settings.markers"
+                class="marker"
+                [style.left.%]="marker"></li>
+          </ul>
+          <ul class="series-values">
+            <li *ngFor="let item of this.chart.series"
+                class="item-value"
+                [style.width.%]="item.value"
+                [style.height.%]="100 / this.chart.series.length"
+                [ngClass]="[+item.highlight ? 'highlight' : 'normal']">
+              <div class="unit"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="chart-title chart-title-series" *ngIf="+this.chart.settings?.series_show">
+            <span>
+              {{ this.chart.settings.series_title }}
+            </span>
+        </div>
+        <div class="chart-title chart-title-measurement" *ngIf="+this.chart.settings?.measurement_show">
+          <span>
+            {{ this.chart.settings.measurement_title }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="content-wrapper"
+    [ngClass]="this.lessonDataService?.textDir" #content>
+    <app-figcaption
+      [text]="this.chart.content?.text">
+    </app-figcaption>
+  </div>
+</ng-container>

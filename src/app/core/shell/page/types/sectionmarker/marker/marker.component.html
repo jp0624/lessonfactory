@@ -1,0 +1,23 @@
+<ng-container *ngIf="this?.markerData">
+  <s></s>
+  <b>
+    <div class="mark"></div>
+    <app-figure
+      *ngIf="this.markerData.marker?.icon"
+      [imgData]="this.markerData.marker?.icon"
+      class="marker marker-circle"
+      [ngClass]="{'marker-active': this.markerData.settings.active === '1'}">
+    </app-figure>
+
+    <app-heading
+      *ngIf="this.markerData.marker?.title"
+      class="heading-center marker-heading"
+      [ngClass]="[this.markerData.settings?.active === '1' ? 'marker-active' : 'marker-idle',  this.markerData.settings?.class ? this.markerData.settings.class : 'marker-inert']"
+      [type]="'h4'"
+      [content]="this.markerData.marker?.title">
+    </app-heading>
+  </b>
+  <!--
+    <pre>{{ this.markerData | json }}</pre>
+  -->
+</ng-container>

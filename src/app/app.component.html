@@ -1,0 +1,39 @@
+<div
+  class="page-wrapper"
+  [style.font-size]="this?.fontScale"
+  [attr.dir]="this.lessonDataService?.textDir"
+  [ngClass]="[this.lessonDataService?.lessonType ? 'lessonType-' + this.lessonDataService?.lessonType : 'lessonType-Standard']">
+
+  <div class="loading-screen" *ngIf="!this.lessonDataService?.dataLoaded || this.lessonDataService?.loading">
+    <ul class="loading">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <ng-container *ngIf="this.updateRoutesService?.initialRoutesLoaded && this.lessonDataService?.dataLoaded">
+    <app-nav-main
+      *ngIf="this.lessonDataService.activePage?.display_main && !this.lessonDataService.scorm"
+      [activePage]="this.lessonDataService?.activePage"
+      [activePageId]="this.lessonDataService.activePageId"
+      [mode]="this.lessonDataService?.lessonType">
+    </app-nav-main>
+    <router-outlet></router-outlet>
+    <app-backdrop></app-backdrop>
+    <app-timed
+      *ngIf="this.lessonDataService?.activePage && this.lessonDataService?.lessonType !== 'demo'"
+      [ngClass]="[this.lessonDataService?.activePageId === 0 ? 'home' : 'inner', this.lessonDataService.activePage.display_next ? 'show' : 'hide' ]"
+      [activePage]="this.lessonDataService?.activePage"
+      [icon]="this.lessonDataService.textDir === 'rtl' ? 'arrow-left' : 'arrow-right'"
+      [class]="'nav-next'"
+      [lockTime]="this.lessonDataService.dataLoaded[this.lessonDataService.activePageId]?.time"
+      [lockType]="this.lessonDataService.dataLoaded[this.lessonDataService.activePageId]?.lockType"
+      [mode]="this.lessonDataService?.lessonType">
+      <!--(click)="this.lessonDataService.gotoTask(this.lessonDataService.activePageId + 1)">-->
+    </app-timed>
+  </ng-container>
+</div>
+<!--
+    <div [innerHTML]="post.body"></div>
+-->

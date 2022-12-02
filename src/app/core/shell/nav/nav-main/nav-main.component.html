@@ -1,0 +1,25 @@
+<ng-container
+  *ngIf="this.lessonDataService?.dataLoaded && this.updateRoutesService?.initialRoutesLoaded && this.shellService.mainNav && this.activePage">
+  <header
+    [ngClass]="[this.mode ? this.mode : '', this.shellService.mainNav.status ? 'expanded' : '', this.activePage.display_main ? 'show' : 'hide']">
+    <a class="toggle-nav" (click)="this.shellService.toggleMainNav('toggle', false)">
+      <s></s>
+      <b>
+                <span>
+                    <i class="icon-more"></i>
+                </span>
+      </b>
+    </a>
+    <app-router
+      [ngClass]="this?.mode ? this.mode + '-next' : 'btn-next'"
+      [class]="this?.mode"
+      [taskId]="this?.activePageId"
+      [icon]="'more'"
+      [type]="'next'">
+    </app-router>
+    <app-nav-progress
+      [ngClass]="this?.mode ? this.mode + '-nav-progress nav-progress' : 'nav-progress'"
+      [mode]="this?.mode">
+    </app-nav-progress>
+  </header>
+</ng-container>

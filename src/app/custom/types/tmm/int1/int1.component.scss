@@ -1,0 +1,112 @@
+:host {
+  &.mobile {
+    background: blue;
+  }
+}
+
+app-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: all 250ms linear;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+app-speedometer {
+  display: block;
+  width: 20%;
+
+  opacity: 0;
+  transform: translate(0%, -50%) scale(0);
+
+  position: absolute;
+  top: 50%;
+  left: 5%;
+
+  &.visible {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+
+  }
+}
+
+.step {
+  &.rtl {
+    text-align: right;
+  }
+  position: absolute;
+  width: 45%;
+  top: 50%;
+  left: 50%;
+
+  line-height: normal;
+
+  transform: translate(-50%, -50%);
+  text-align: left;
+  padding: 0 2em;
+  width: 100%;
+
+  &.step-1,
+  &.step-2,
+  &.step-3 {
+    width: 55%;
+
+  }
+}
+
+.maintainBar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 65%;
+  left: 50%;
+  width: 40%;
+  height: 6px;
+  border-radius: 3px;
+  background: #666;
+  overflow: hidden;
+
+  .progress {
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    top: 0;
+    position: absolute;
+    background: #AEDEE9;
+  }
+}
+
+.results {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 9999;
+  padding: 3em 1em;
+
+  li {
+    width: 33%;
+    float: left;
+    padding: 0 1em;
+
+    h3 {
+      text-align: center;
+      width: 100%;
+      font-size: 2.3em;
+      margin-bottom: 0.5em;
+
+      @media screen and (max-width: 1025px) {
+        font-size: 2em;
+      }
+    }
+    h4 {
+      width: 100%;
+      font-size: 0.75em;
+      line-height: 1.5em;
+    }
+  }
+}

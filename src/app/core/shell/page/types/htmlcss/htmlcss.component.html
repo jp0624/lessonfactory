@@ -1,0 +1,27 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.activePage.content[this.contentId].headings?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [ngClass]="[this?.pageLoaded ? 'loaded' : 'notload']">
+    <div class="css-wrapper" [innerHTML]="this.activePage.content[0].markup.css | safeHtml"></div>
+    <div class="html-wrapper" [innerHTML]="this.activePage.content[0].markup.html | safeHtml"
+         [style.width.px]="this.figureSize?.x"
+         [style.height.px]="this.figureSize?.y"></div>
+  </div>
+  <div class="content-wrapper"
+       [ngClass]="this.lessonDataService?.textDir"
+       [attr.dir]="this.lessonDataService?.textDir" #content>
+    <app-figcaption
+      [heading]="this.activePage.content[this.contentId].figcaption.heading"
+      [text]="this.activePage.content[this.contentId].figcaption.text">
+    </app-figcaption>
+  </div>
+</ng-container>

@@ -1,0 +1,107 @@
+<ng-container *ngIf="this?.activePage">
+  <ng-container *ngIf="this.componentData?.categories.length">
+    <div class="overall-wrapper">
+          <span>
+            {{ this.componentData.messages?.total }}
+          </span>
+      <em>
+        {{ (100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total | number: '1.0-1' }}%
+      </em>
+    </div>
+  </ng-container>
+  <div class="header-wrapper" #header>
+    <ng-container
+      *ngIf="this.componentData.headings?.heading">
+      <app-header
+        [heading]="this.componentData.headings?.heading"
+        [activePage]="this?.activePage"
+        [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+        [activePageId]="this?.activePageId">
+      </app-header>
+    </ng-container>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y">
+
+
+    <ng-container *ngIf="this.componentData?.categories.length">
+      <div class="canvas"
+           [style.width.px]="this.figureSize?.x"
+           [style.height.px]="this.figureSize?.y">
+        <ng-container
+          *ngIf="this.componentData.headings?.subheading">
+          <h1 class="sub-heading">{{this.componentData.headings?.subheading}}</h1>
+        </ng-container>
+        <!--<pre>{{ this.componentData.categories | json}}</pre>
+        {{ this.answersArray | json }}-->
+        <div class="category-wrapper">
+          <div class="category" *ngFor="let cat of this.componentData?.categories">
+            <app-figure
+              [imgSrc]="cat.src">
+            </app-figure>
+            <h1>{{ cat.title }} {{ (100 / (cat.answers * 100)) * cat.total | number: '1.0-1' }}%</h1>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="this?.answerDataLoaded">
+      <div
+        class="canvas-figure"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y"
+        *ngIf="!this.componentData?.categories.length">
+        <div class="lg-overall-wrapper"
+             [ngClass]="[!this.componentData.settings.passed ? 'fail' : 'pass']">
+          <div class="donut-wrapper">
+            <s></s>
+            <b>
+              <div class="percent">
+                {{ (100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total | number:'1.0-1' }}%
+              </div>
+              <div class="donut">
+                <svg _ngcontent-qrg-14="" viewBox="0 0 200 200">
+                  <circle _ngcontent-qrg-14="" class="circle-back" cx="100" cy="100" r="80"></circle>
+                  <circle _ngcontent-qrg-14="" class="circle-front" cx="100" cy="100" r="80" [ngStyle]="{
+                          'stroke-dasharray': this?.answerDataLoaded && this.componentData.overall.total != 0
+                            ? ((500 / 100) * ((100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total ) + 5) + ', 500'
+                            : '0, 500'
+                        }"></circle>
+                </svg>
+              </div>
+              <!--
+              <div class="donut three-quarter-filled">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 340 333" style="enable-background:new 0 0 340 333;" xml:space="preserve">
+                  <g transform="translate(115, 115)">
+                    <circle cx="55" cy="52" r="133" class="circle-back" />
+                    <circle cx="55" cy="52" r="133" class="circle-front"
+                          [ngStyle]="{
+                              'stroke-dashoffset': 628 * (1 - ((100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total ) * 0.01) + 'px'
+                          }"/>
+                  </g>
+                  </svg>
+              </div>
+              -->
+            </b>
+          </div>
+          <div class="message-wrapper">
+            <em>
+              {{ this.componentData.messages?.total }}
+            </em>
+            <span>
+                      {{ ((100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total) >= this.ticketService.sessionData.pass_mark ? this.componentData.messages?.pass : this.componentData.messages?.fail }}
+                  </span>
+          </div>
+          <ng-container *ngIf="((100 / (this.componentData.overall.answers * 100)) * this.componentData.overall.total) < this.ticketService.sessionData.pass_mark">
+            <a class="btn-retry"
+              (click)="clearQuestionBookmarks()">
+              {{ this.componentData.messages?.retry }}
+            </a>
+        </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="content-wrapper" #content></div>
+</ng-container>

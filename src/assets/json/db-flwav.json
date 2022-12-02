@@ -1,0 +1,302 @@
+{
+  "lesson_name": "Working Alongside Vehicles",
+  "lesson_id": 46,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "Intro",
+      "task_type_id": 4,
+      "pagetype": "TitlescreenComponent",
+      "lockType": "none",
+      "task_id": 54,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+        {
+          "term": "Continue",
+          "selector": "{$dt-continue}",
+          "value": "Continue"
+        }
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Working Alongside Vehicles",
+            "subheading": "Forklift Operator Training",
+            "src": ""
+          },
+          "figure": {
+            "src": "/media/lessons/flwav/intro/image01.jpg",
+            "alt": "Working Alongside Vehicles"
+          },
+          "settings": {
+            "reverse": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide 01",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 74,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Heavy Vehicles in a Busy Workplace",
+            "src": "/media/lessons/flwav/slide01/slide01.svg"
+          },
+          "figcaption": {
+            "text": "Forklifts are big, heavy, dangerous vehicles. In situations where multiple forklifts operate in the same area, such as on docks or in narrow aisles, there is the risk of serious collision. This risk increases when limitations to visibility and maneuverability are not taken into account. If operators forget these facts, or do not follow the workplace traffic management plan, injuries or fatalities can follow."
+          },
+          "headings": {
+            "heading": "Heavy Vehicles in a Busy Workplace"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide 02",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 74,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Deceptive Dimensions",
+            "src": "/media/lessons/flwav/slide02/slide02.jpg"
+          },
+          "figcaption": {
+            "text": "Despite the average stand-up reach truck being only 2/3 the size of a sit-down forklift, it weighs approximately the same amount."
+          },
+          "headings": {
+            "heading": "Deceptive Dimensions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Video Assessment",
+      "task_type_id": 16,
+      "pagetype": "VideoassessmentComponent",
+      "lockType": "video-complete",
+      "task_id": 57,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 1,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "video": {
+            "poster": "/media/lessons/flwav/intro/image01.jpg",
+            "src": "/media/lessons/flwav/assessment/USA_EN_WAV_default.mp4"
+          }
+        },
+        {
+          "settings": {
+            "markers": true
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following can make it more difficult to identify workplace hazards?",
+            "time": "24"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] visual distractions"
+          },
+          "answer2": {
+            "text": "[b] loud noises and disruptive work environments",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] excessive empty space around the vehicle",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] A and B only",
+            "score": "2"
+          },
+          "answer5": {
+            "text": "[e] A and C only",
+            "score": "0"
+          }
+        },
+        {
+          "question": {
+            "text": "What should operators do to protect themselves from the hazards presented by other workers?",
+            "time": "60"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] use the smallest forklift available"
+          },
+          "answer2": {
+            "text": "[b] use defensive driving strategies",
+            "score": "2"
+          },
+          "answer3": {
+            "text": "[c] use the largest forklift available",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] use offensive driving strategies",
+            "score": "0"
+          },
+          "answer5": {
+            "score": "0",
+            "text": "[e] drive at speeds greater than the average walking pace"
+          }
+        },
+        {
+          "question": {
+            "text": "How should operators maximize their visibility?",
+            "time": "88"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] by traveling in reverse at all times"
+          },
+          "answer2": {
+            "score": "0",
+            "text": "[b] by looking in the direction of travel"
+          },
+          "answer3": {
+            "text": "[c] by regularly scanning the area",
+            "score": "0"
+          },
+          "answer4": {
+            "score": "0",
+            "text": "[d] A and B only"
+          },
+          "answer5": {
+            "score": "2",
+            "text": "[e] B and C only"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following statements about effective workplace traffic management plans is true?",
+            "time": "114"
+          },
+          "answer1": {
+            "text": "[a] they do not include information about speed or signage",
+            "score": "0"
+          },
+          "answer2": {
+            "text": "[b] they are only meant to protect operators from traffic hazards",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] they outline safe vehicle practices specific to the work environment",
+            "score": "2"
+          },
+          "answer4": {
+            "text": "[d] they are only meant to protect pedestrian workers from traffic hazards",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] they outline general safe vehicle practices not specific to any one work environment",
+            "score": "0"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following statements is true?",
+            "time": "149"
+          },
+          "answer1": {
+            "text": "[a] forklifts should work as close to pedestrians and other vehicles as possible",
+            "score": "0"
+          },
+          "answer2": {
+            "text": "[b] intersections and blind corners are safe places to overtake other vehicles",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] operators should reduce their speed when approaching intersections, corners, and other vehicles",
+            "score": "2"
+          },
+          "answer4": {
+            "text": "[d] scanning the area cannot maximize an operator's visibility",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] traffic management plans never include information about workplace traffic signs",
+            "score": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Congratulations",
+      "task_type_id": 13,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 59,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "subheading": "Remember, stay safe around other vehicles.",
+            "heading": "Congratulations",
+            "text": "You have successfully completed the Lesson"
+          }
+        }
+      ]
+    }
+  ]
+}

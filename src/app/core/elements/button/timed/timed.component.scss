@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+@import "../../../../../assets/scss/mixins",
+"../../../../../assets/scss/variables";
+
+@keyframes bulge {
+  0% {
+    transform: scale3d(1, 1, 1)
+  }
+  50% {
+    transform: scale3d(1.25, 1.25, 1)
+
+  }
+  100% {
+    transform: scale3d(1, 1, 1)
+  }
+}
+
+:host {
+  float: left;
+  a {
+    &.btn {
+      float: left;
+
+      &.enabled {
+        cursor: pointer;
+        animation-name: bulge;
+        animation-duration: 250ms;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+
+      }
+      &.hide {
+        display: none;
+      }
+      &.disabled {
+        pointer-events: none;
+      }
+      &.btn-timed-nav-next {
+        background: $color-disabled;
+        width: 100%;
+
+      }
+      b {
+        overflow: hidden;
+        span.bg-load {
+          left: 0%;
+          background-color: #3e60b3;
+          height: 100%;
+          width: 100%;
+          display: block;
+          position: absolute;
+          top: 0;
+          transform: translate(-100%, 0%) translateZ(0px);
+          transition-timing-function: linear;
+          transition-property: transform;
+
+          &.animate {
+            transform: translate(0%, 0%) translateZ(0px);
+          }
+        }
+        app-i {
+          @include abs-center-position();
+          color: $color-cta-font;
+          font-size: 2em;
+        }
+      }
+    }
+  }
+}

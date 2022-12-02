@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+"../../../../assets/scss/variables";
+
+:host {
+  position: relative;
+  s {
+    display: none;
+  }
+  figure {
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &.titlescreen-logo {
+    .img-svg {
+      fill: #fff;
+    }
+
+  }
+  &.marker-circle {
+    s {
+      display: block;
+    }
+    &.marker-active {
+      figure {
+        border-color: $color-cta;
+        .img-svg {
+          fill: $color-cta;
+        }
+      }
+      & ~ .marker-circle {
+        figure {
+          border-color: $color-disabled;
+
+          .img-svg {
+            fill: $color-disabled;
+          }
+        }
+
+      }
+    }
+    figure {
+      height: 80%;
+      width: 80%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 50%;
+      border: 0.35em solid $color-disabled;
+
+      .img-svg {
+        height: 70%;
+        width: 70%;
+        top: 50%;
+
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        fill: $color-disabled;
+
+      }
+    }
+  }
+}

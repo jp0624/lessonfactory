@@ -1,0 +1,34 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="vert-center lessonType-{{ this.lessonDataService?.lessonType }}">
+    <ng-container *ngIf="this.activePage.content[0].headings?.src">
+      <app-figure
+        [imgData]="this.activePage.content[0].headings?.src"
+        class="titlescreen titlescreen-logo lessonType-{{ this.lessonDataService.lessonType }}">
+      </app-figure>
+    </ng-container>
+    <app-header
+      class="lessonType-{{ this.lessonDataService?.lessonType }}"
+      [heading]="this.activePage.content[0].headings?.heading"
+      [subheading]="this.activePage.content[0].headings?.subheading"
+      [reverse]="this.activePage.content[0].settings?.reverse"
+      [activePage]="this?.activePage"
+      [ngClass]="[this?.pageLoaded ? 'loaded' : 'loading',  this?.chars25 ? 'chars25' : 'chars',this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage.content[0].headings?.src ? 'titlescreen-logo' : 'titlescreen-text']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+    <app-router
+      [attr.dir]="this.lessonDataService?.textDir"
+      [text]="this.activePage.content[0].btns?.continue"
+      [taskId]="1"
+      [class]="'continue lessonType-' + this.lessonDataService?.lessonType"
+      [ngClass]="[this?.pageLoaded ? 'loaded' : 'loading', this.activePage?.pagetype ? 'router-' + this.activePage?.pagetype : 'router-generic']"
+      [type]="'next'">
+    </app-router>
+  </div>
+  <app-figure
+    [ngClass]="[this.lessonDataService?.lessonType ? 'lessonType-' + this.lessonDataService?.lessonType : 'lessonType-Standard']"
+    [imgSrc]="this.activePage.content[0].figure?.src"
+    [imgAlt]="this.activePage.content[0].figure?.alt"
+    [style.width.px]="this.figureSize?.x"
+    [style.height.px]="this.figureSize?.y">
+  </app-figure>
+</ng-container>

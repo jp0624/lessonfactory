@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+@import "../../../../../../assets/scss/mixins",
+"../../../../../../assets/scss/variables";
+
+:host {
+  padding: 5em;
+  .canvas-wrapper {
+    padding: 5em;
+  }
+  app-marker {
+    position: relative;
+    top: 50%;
+    font-size: 0.75em;
+
+    &.link {
+      cursor: pointer;
+    }
+  }
+  .logos-2 {
+    app-figure:nth-child(1) {
+      left: 25%;
+    }
+    app-figure:nth-child(2) {
+      left: 75%;
+    }
+  }
+  app-figure {
+    width: 50%;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    opacity: 0;
+    transform: rotateX(-90deg) scale3d(1, 0, 0) translate(-50%, -100%);
+
+    transform-origin: 0% -50%;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 450ms;
+    transition-delay: 250ms;
+
+    &.loaded {
+      opacity: 1;
+      transform: rotateX(0deg) scale3d(1, 1, 1) translate(-50%, -100%);
+    }
+  }
+}

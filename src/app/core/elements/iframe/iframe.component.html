@@ -1,0 +1,6 @@
+<ng-container *ngIf="this?.loadSrc">
+  <iframe
+    [src]="this?.src | safeUrl"
+  >
+  </iframe>
+</ng-container>

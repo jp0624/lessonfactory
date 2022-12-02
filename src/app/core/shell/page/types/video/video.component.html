@@ -1,0 +1,62 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.activePage.content[0].headings?.heading"
+      [subheading]="this.activePage.content[0].headings?.subheading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y">  
+    <app-video
+     
+      [ngClass]="this.lessonDataService?.textDir"
+      class="canvas-video"
+      *ngIf="this.componentData?.video"
+      [theme]="this.componentData.settings?.theme"
+      [videoUrl]="this.componentData.video?.src"
+      [videoPoster]="this.componentData.video?.poster"
+      [style.width.px]="this.figureSize?.x"
+      [style.height.px]="this.figureSize?.y"
+      [autoPlay]="false"
+      [playsinline]="true"
+      [vidPlay]="this.videoData?.playing"
+      [pauseable]="+this.componentData.settings?.pauseable"
+      [controls]="+this.componentData.settings?.controls"
+      [timeline]="+this.componentData.settings?.timeline"
+      [icons]="this.componentData?.icons"
+      [overlay]="this.componentData.video?.img"
+      (videoComplete)="videoComplete($event)"
+      [in]  = "this.componentData?.in"
+      [out] = "this.componentData?.out"
+      (expressPopup) = "expressPopup($event)"
+      [essentialBreak] = "this?.essentialBreakAssign"
+      (essentialPopup) = "essentialPopup($event)">
+    </app-video> 
+    <ng-container *ngIf="show">
+    <div class="popuptext">  
+      <div class="popupBg">
+      <app-essentialquestion  
+          [questionData]="this.componentData?.questionData"
+          [linkedQuestions]="this.componentData?.linked_questions"
+          (expressEvent) = "expressEvent($event)"
+          [essentialLinkedQuestions] = "this?.essentialLinkedQuestions"
+          [essentialLoop] = "this.essentialLoop"
+          (essentialEvent) = "essentialEvent($event)">
+      </app-essentialquestion>
+    </div>
+    </div>
+  </ng-container>    
+  </div>
+  <div class="content-wrapper"
+       [attr.dir]="this.lessonDataService?.textDir"
+       #content>
+    <app-figcaption
+      [heading]="this.activePage.content[0].figcaption?.heading"
+      [text]="this.activePage.content[0].figcaption?.text">
+    </app-figcaption>
+  </div>  
+</ng-container>

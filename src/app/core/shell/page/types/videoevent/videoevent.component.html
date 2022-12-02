@@ -1,0 +1,66 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <app-header
+      [heading]="this.activePage.content[0].headings?.heading"
+      [activePage]="this?.activePage"
+      [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+      [activePageId]="this?.activePageId">
+    </app-header>
+  </div>
+  <!-- video code started-->
+  <div class="popup">
+    <h1 style="text-align:center;padding:3%;">
+        {{videoData.heading}}
+    </h1>
+    <video controls="controls" preload="none"  (timeupdate)="setCurrentTime($event,videoPlayer)" (canplay)="pauseVideo(videoPlayer)"
+      #videoPlayer width="1200" height="800" (ended) = "test()">
+    <source src="{{videoData.url}}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+  </div>
+  <!--<div class="popup">
+  <h1 style="text-align:center;padding:3%;">
+      video events
+  </h1>
+  <video controls="controls" preload="none"  (timeupdate)="setCurrentTime($event)" (canplay)="pauseVideo()"
+    #videoPlayer width="1200" height="800">
+  <source src="https://introcave.com/preview/Glitch_Logo_Ver2_1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+  </div>-->
+  <ng-container *ngIf="show">
+  <div>
+    <div class="popuptext">
+          <div>
+            <span class="close-button" (click) = "closebutton()">&times;</span>
+              <div>
+                  <label>Name:</label>
+                  <div><input id="tbname" name="yourname" /></div>
+              </div>
+              <div>
+                  <label>Email Address:</label>
+                  <div><input name="email" id="email" /></div></div>
+              <div>
+                  <label>Additional Information (optional):</label>
+                  <div><textarea rows="5" cols="46"></textarea></div>
+                  <div>
+                    <span><input type="submit" value="Submit" class="button button-greencolor"
+                     (click) = "closebutton()"></span>
+                    <span><input type="button" value="Cancel" class="button button-redcolor" (click) = "closebutton()"></span>
+                  </div>
+              </div>        
+            </div>
+        </div>
+    </div>
+  </ng-container>
+  <!-- video code ended-->
+    <div class="content-wrapper"
+       [attr.dir]="this.lessonDataService?.textDir"
+       #content>
+      <app-figcaption
+       [heading]="this.activePage.content[0].figcaption?.heading"
+       [text]="this.activePage.content[0].figcaption?.text">
+     </app-figcaption>
+  </div>
+</ng-container>
+<!-- Popup-->

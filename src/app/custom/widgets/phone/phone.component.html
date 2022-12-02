@@ -1,0 +1,95 @@
+<div class="phone" [ngClass]="{'started': this?.timerStarted, 'complete': this?.complete}" dir="ltr">
+  <s></s>
+  <b>
+    <img class="phone-img" [src]="this.globalService.assetsurl + '/media/lessons/dst/int1/phone.png'"/>
+    <div class="phone-display">
+      <s></s>
+      <b>
+        <ul class="display-number">
+          <li *ngFor="let num of this?.phoneNumber; let i = index;" class="val val-{{num}}"
+              [ngClass]="{'done': this?.phoneNumberEntered[i] > -1, 'active':  this?.phoneNumberEntered.length === i}">
+            <span *ngIf="i === 2 || i === 5">-</span>
+          </li>
+        </ul>
+      </b>
+    </div>
+    <ul class="phone-keypad">
+      <li class="num num-1" (mousedown)="num1activeState='active'" (click)="this.checkVal(1)"
+          (mouseup)="num1activeState=''" (mouseleave)="num1activeState=''" [ngClass]="num1activeState">
+        <!-- <li class="num num-1" (mousedown)="num1activeState='active'; this.checkVal(1)" (mouseup)="num1activeState=''" (mouseleave)="num1activeState=''" [ngClass]="num1activeState">-->
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-2" (mousedown)="num2activeState='active'" (click)="this.checkVal(2)"
+          (mouseup)="num2activeState=''" (mouseleave)="num2activeState=''" [ngClass]="num2activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-3" (mousedown)="num3activeState='active'" (click)="this.checkVal(3)"
+          (mouseup)="num3activeState=''" (mouseleave)="num3activeState=''" [ngClass]="num3activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-4" (mousedown)="num4activeState='active'" (click)="this.checkVal(4)"
+          (mouseup)="num4activeState=''" (mouseleave)="num4activeState=''" [ngClass]="num4activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-5" (mousedown)="num5activeState='active'" (click)="this.checkVal(5)"
+          (mouseup)="num5activeState=''" (mouseleave)="num5activeState=''" [ngClass]="num5activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-6" (mousedown)="num6activeState='active'" (click)="this.checkVal(6)"
+          (mouseup)="num6activeState=''" (mouseleave)="num6activeState=''" [ngClass]="num6activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-7" (mousedown)="num7activeState='active'" (click)="this.checkVal(7)"
+          (mouseup)="num7activeState=''" (mouseleave)="num7activeState=''" [ngClass]="num7activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-8" (mousedown)="num8activeState='active'" (click)="this.checkVal(8)"
+          (mouseup)="num8activeState=''" (mouseleave)="num8activeState=''" [ngClass]="num8activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-9" (mousedown)="num9activeState='active'" (click)="this.checkVal(9)"
+          (mouseup)="num9activeState=''" (mouseleave)="num9activeState=''" [ngClass]="num9activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="func func-star icon-func-star" (mousedown)="numstaractiveState='active'"
+          (mouseup)="numstaractiveState=''" (mouseleave)="numstaractiveState=''" [ngClass]="numstaractiveState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="num num-0" (mousedown)="num0activeState='active'" (click)="this.checkVal(0)"
+          (mouseup)="num0activeState=''" (mouseleave)="num0activeState=''" [ngClass]="num0activeState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="func func-pound icon-func-pound" (mousedown)="numpoundactiveState='active'"
+          (mouseup)="numpoundactiveState=''" (mouseleave)="numpoundactiveState=''" [ngClass]="numpoundactiveState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="func func-voice icon-func-voice" (mousedown)="numvoiceactiveState='active'"
+          (mouseup)="numvoiceactiveState=''" (mouseleave)="numvoiceactiveState=''" [ngClass]="numvoiceactiveState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="func func-call icon-func-call" (mousedown)="numcallactiveState='active'"
+          (mouseup)="numcallactiveState=''" (mouseleave)="numcallactiveState=''" [ngClass]="numcallactiveState">
+        <s></s>
+        <b></b>
+      </li>
+      <li class="func func-del icon-func-del" (mousedown)="numdelactiveState='active'" (mouseup)="numdelactiveState=''"
+          (mouseleave)="numdelactiveState=''" [ngClass]="numdelactiveState">
+        <s></s>
+        <b></b>
+      </li>
+    </ul>
+  </b>
+</div>

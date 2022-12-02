@@ -1,0 +1,6 @@
+<div [ngClass]="this?.activeClass ? 'scene ' + this?.activeClass : 'scene'">
+  <button *ngIf="this?.nextBtn === 2" class="btn-progress btn-next" (click)="next()">+</button>
+  <div [innerHTML]="this.css | safeHtml" class="scene-css"></div>
+  <div [innerHTML]="this.activeCss | safeHtml" class="scene-css-active"></div>
+  <div [innerHTML]="this.html | safeHtml" class="scene-html"></div>
+</div>

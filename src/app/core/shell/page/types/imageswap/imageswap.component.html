@@ -1,0 +1,52 @@
+<ng-container *ngIf="this?.activePage">
+  <div class="header-wrapper" #header>
+    <ng-container *ngIf="this.slideContent?.heading">
+      <app-header
+        [heading]="this.slideContent?.heading"
+        [activePage]="this?.activePage"
+        [ngClass]="[this.activePage?.pagetype ? 'header-' + this.activePage?.pagetype : 'header-generic', this.activePage?.display_main ? 'nav-displayed' : 'nav-hidden']"
+        [activePageId]="this?.activePageId">
+      </app-header>
+    </ng-container>
+  </div>
+  <div class="canvas-wrapper" #canvas
+       [style.width.px]="this.canvasSize?.x"
+       [style.height.px]="this.canvasSize?.y"
+       [attr.dir]="this.lessonDataService?.textDir">
+    <ng-container *ngFor="let slide of this.componentData?.slides; let i = index">
+      <app-figure
+        class="canvas-figure"
+        [ngClass]="[this.activeSlide === i ? 'active' : 'idle']"
+        [imgSrc]="slide.figure.src"
+        [style.width.px]="this.figureSize?.x"
+        [style.height.px]="this.figureSize?.y"
+      >
+      </app-figure>
+    </ng-container>
+    <ng-container *ngIf="this.componentData.buttons.length">
+      <div class="button-wrapper"
+           [style.width.px]="this.figureSize?.x"
+           [style.height.px]="this.figureSize?.y">
+        <app-standard
+          *ngFor="let button of this.componentData?.buttons; let i = index"
+          [icon]="button.button?.icon"
+          [ngClass]="[button.button?.class_init ? button.button.class_init : 'idle', this.componentData.settings?.complete ? button.button.class_click : 'null']"
+          [text]="button.button?.text"
+          [type]="'Standard'"
+          [style.width.%]="button.size?.x"
+          [style.height.%]="button.size?.y"
+          [style.left.%]="button.position?.x"
+          [style.top.%]="button.position?.y"
+          (click)="showResult()">
+        </app-standard>
+      </div>
+    </ng-container>
+  </div>
+  <div [ngClass]="this.lessonDataService?.textDir" class="content-wrapper" #content>
+    <ng-container *ngIf="this.slideContent?.content">
+      <app-figcaption
+        [text]="this.slideContent?.content">
+      </app-figcaption>
+    </ng-container>
+  </div>
+</ng-container>

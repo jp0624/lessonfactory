@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+@import "../../../../assets/scss/mixins",
+        "../../../../assets/scss/variables";
+
+@keyframes flash {
+    from {
+        z-index: 99;
+        opacity: 0;
+    }
+    50% {
+        z-index: 99;
+        opacity: 1;
+    }
+    to {
+        z-index: 99;
+        opacity: 0;
+    }
+}
+
+:host {
+    display: block;
+    overflow: hidden;
+    
+    .video-wrapper {
+        position: relative;
+        @include abs-center-position();
+        float: left;
+        height: 100%;
+        width: 100%;
+        .poster{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        video {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            // border-bottom: 1px solid transparent;
+        }
+        .overlay-img {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .overlay {
+            cursor: pointer;
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 250ms ease-in-out;
+            background-color: #fff;
+
+            &.disableClick {
+                cursor: default;
+            }
+        }
+        .video-icon {
+            z-index: 0;
+            position: absolute;
+            color: #fff;
+            transform: translate(-50%, -50%);
+            font-size: 1em;
+        }
+        &.complete {
+
+            .overlay {
+                animation-name: flash;
+                animation-duration: 500ms;
+            }
+
+        }
+        .btn-center-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            color: rgba(255,255,255,1);
+            text-shadow: 1.5px 1.5px 10px rgba(0, 0, 0, 0.25);
+            text-stroke: 0.025em rgba(0,0,0,0.25);
+            -webkit-text-stroke: 0.025em rgba(0,0,0,0.25);
+        }
+        .customControls {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            height: 10%;
+            z-index: 99;
+            padding: 0 2.5%;
+            background-color: rgba(255,255,255,0.5);
+            
+            @media screen and (max-width: 769px) {
+                font-size: 0.75em;
+            }
+            &.controls-assessment {
+                height: 1.5em;
+                background-color: transparent;
+                padding: 0;
+
+                .timeline-wrapper,
+                .btn-wrapper {
+                    margin: 0%;
+                }
+                .timeline-wrapper {
+                    margin: 0;
+                    width: 80%;
+
+                    .timeline {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0;
+                        background-color: rgba(255,255,255,0.5);
+
+                        .progress {
+                            
+                            background-color: rgba(255,255,255,0.5);
+                        }
+                        .markers {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 100%;
+                            .marker {
+                                border-radius: 50%;
+
+                                position: absolute;
+                                left: 20%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 0.5em;
+                                height: 0.5em;
+
+                                &.idle {
+                                    background-color: #fff;
+                                }
+                                &.correct {
+                                    background-color: #80ced8;
+                                }
+                                &.wrong {
+                                    background-color: #cc3334;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                .btn-wrapper {
+                    width: 20%;
+                    background-color: rgba(255,255,255,0.75);
+                }
+            }
+
+            .timeline-wrapper,
+            .btn-wrapper {
+                margin: 0 0.5%;
+                height: 100%;
+                position: relative;
+                float: left;
+            }
+            .timeline-wrapper {
+                width: 79%;
+                &.fullwidth {
+                    width: 100%;
+                }
+
+                .timeline {
+                    overflow: hidden;
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                    transform: translate(0%, -50%);
+
+                    height: 6px;
+                    border-radius: 3px;
+                    background: #666;
+
+                    .progress {
+                        width: 100%;
+                        height: 100%;
+                        left: 0%;
+                        top: 0%;
+                        transform: translate(-100%, 0%);
+                        position: absolute;
+                        background: #AEDEE9;
+                    }
+                }
+            }
+            .btn-wrapper {
+                width: 19%;
+                font-size: 0.65em;
+
+                .btn-center {
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 2em;
+                    display: flex;
+                    app-standard {
+                        display: inline-block;
+                        margin: 0 0.25em;
+                        padding-top: 0.15em;
+                    }
+                }
+            }
+        }
+    }
+}

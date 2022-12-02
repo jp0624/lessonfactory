@@ -1,0 +1,12 @@
+<!--<pre>{{ this.slideShow?.slides | json }}</pre>-->
+<ng-container *ngIf="this?.activePage">
+  <div class="slide-wrapper"
+       *ngFor="let slide of this.slideShow.slides; let i = index"
+       [ngClass]="this.slideShow.settings.activeSlide === i ? 'slide-active' : this.slideShow.settings.activeSlide > i ? 'slide-prev' : this.slideShow.settings.activeSlide < i ? 'slide-next' : 'slide-idle'">
+    <app-slideshow-slide
+      [slideData]="slide"
+      [activePage]="this.activePage"
+      [wrapperSize]="this.wrapperSize">
+    </app-slideshow-slide>
+  </div>
+</ng-container>

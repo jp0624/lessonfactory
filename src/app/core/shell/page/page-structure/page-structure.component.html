@@ -1,0 +1,29 @@
+<section *ngIf="this?.activePage"
+         ngClass="lesson-wrapper task task-{{this.activePage?.name}} page page-type-{{this.activePage?.pagetype}}">
+
+  <header *ngIf="this.activePage.heading || this.activePage.subheading"
+          ngClass="header-task header-task-{{this.activePage?.name}} header-page header-page-type-{{this.activePage?.pagetype}}">
+    <ng-container *ngIf="this.activePage?.pagetype != 'titlescreen' && this.activePage?.pagetype != 'question'">
+      <app-heading *ngIf="this.activePage.heading" [type]="'h1'" [content]="this.activePage?.heading"></app-heading>
+      <app-heading *ngIf="this.activePage.subheading" [type]="'h2'"
+                   [content]="this.activePage?.subheading"></app-heading>
+    </ng-container>
+    <ng-container *ngIf="this.activePage?.pagetype === 'titlescreen'">
+      <app-heading *ngIf="this.activePage.subheading" [type]="'h2'"
+                   [content]="this.activePage?.subheading"></app-heading>
+      <app-heading *ngIf="this.activePage.heading" [type]="'h1'" [content]="this.activePage?.heading"></app-heading>
+      <app-router
+        [text]="'continue'"
+        [class]="'continue'"
+        [taskId]="this?.activePageId + 1">
+      </app-router>
+    </ng-container>
+  </header>
+
+  <article ngClass="content-wrapper content-wrapper-{{this.activePage?.pagetype}}">
+    <app-page-type *ngIf="this.activePage?.pagetype" [activePage]="this.activePage"
+                   [activePageId]="this.activePageId"></app-page-type>
+    <p *ngIf="!this.activePage.pagetype" class="error">Page Type Undefined</p>
+  </article>
+
+</section>

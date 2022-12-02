@@ -1,0 +1,328 @@
+{
+  "lesson_name": "Situational Awareness",
+  "lesson_id": 47,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "Video Assessment",
+      "task_type_id": 16,
+      "pagetype": "VideoassessmentComponent",
+      "lockType": "video-complete",
+      "task_id": 57,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 1,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "settings": {
+            "markers": true,
+            "type": "toggle-src",
+            "controls": false,
+            "pauseable": true
+          }
+        },
+        {
+          "video": {
+            "name": "default",
+            "poster": "/media/lessons/pvisc/intro/image01.png",
+            "src": "/media/lessons/sat/front-view.mp4"
+          }
+        },
+        {
+          "video": {
+            "name": "right",
+            "src": "/media/lessons/sat/right-view.mp4"
+          }
+        },
+        {
+          "video": {
+            "name": "left",
+            "src": "/media/lessons/sat/left-view.mp4"
+          }
+        },
+        {
+          "video": {
+            "name": "rear",
+            "src": "/media/lessons/sat/rear-view.mp4"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following statements is true?",
+            "time": "22"
+          },
+          "answer1": {
+            "score": "22",
+            "text": "[a] the posted speed limit is sometimes too fast for the driving conditions"
+          },
+          "answer2": {
+            "text": "[b] the posted speed limit should only be exceeded on highways",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] the posted speed limit should only be exceeded on residential streets",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] the posted speed limit is the appropriate speed for all conditions",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] the posted speed limit applies only to inexperienced drivers",
+            "score": "0"
+          }
+        },
+        {
+          "question": {
+            "text": "What should you do as you assess your surroundings while driving?",
+            "time": "64"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] frequently talk on your cell phone to stay updated on news"
+          },
+          "answer2": {
+            "text": "[b] keep your eyes fixed on one point straight ahead",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] note important factors, such as the road layout, weather conditions and traffic flow",
+            "score": "2"
+          },
+          "answer4": {
+            "text": "[d] stop your vehicle every 30 minutes to scan the road",
+            "score": "0"
+          },
+          "answer5": {
+            "score": "0",
+            "text": "[e] take a photo of your surroundings every 30 minutes"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following helps you maintain a safe speed in adverse weather conditions?",
+            "time": "97"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] decreasing your following distance by 50%"
+          },
+          "answer2": {
+            "score": "2",
+            "text": "[b] giving yourself extra time to reach your destination"
+          },
+          "answer3": {
+            "text": "[c] driving at a speed 15% faster than the fastest car on the road",
+            "score": "0"
+          },
+          "answer4": {
+            "score": "0",
+            "text": "[d] rapidly weaving through traffic until the weather improves"
+          },
+          "answer5": {
+            "score": "0",
+            "text": "[e] driving faster in adverse weather than you do in ideal conditions"
+          }
+        },
+        {
+          "question": {
+            "text": "Which of the following should you avoid?",
+            "time": "128"
+          },
+          "answer1": {
+            "score": "0",
+            "text": "[a] aggressively weaving through traffic"
+          },
+          "answer2": {
+            "text": "[b] driving too slowly in the passing lane",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] cutting off other vehicles",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] A and B only",
+            "score": "0"
+          },
+          "answer5": {
+            "text": "[e] A, B and C",
+            "score": "2"
+          }
+        },
+        {
+          "question": {
+            "text": "In which of the following areas should you slow down?",
+            "time": "169"
+          },
+          "answer1": {
+            "text": "[a] around schools",
+            "score": "0"
+          },
+          "answer2": {
+            "text": "[b] around construction zones",
+            "score": "0"
+          },
+          "answer3": {
+            "text": "[c] in all passing lanes",
+            "score": "0"
+          },
+          "answer4": {
+            "text": "[d] A and B only",
+            "score": "2"
+          },
+          "answer5": {
+            "text": "[e] A and C only",
+            "score": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide01",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 72,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": ""
+          },
+          "figure": {
+            "src": "/media/lessons/sat/SAT_Slide01.svg",
+            "alt": "Situational Awareness (Slide 01)"
+          },
+          "figcaption": {
+            "text": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide02",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 73,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Situational Awareness (Slide 02)",
+            "src": "/media/lessons/sat/SAT_Slide02.svg"
+          },
+          "figcaption": {
+            "text": ""
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide03",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 74,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "",
+            "src": "/media/lessons/sat/SAT_Slide03.png"
+          },
+          "figcaption": {
+            "text": ""
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "task_type_id": 2,
+      "pagetype": "VideopageComponent",
+      "lockType": "video-complete",
+      "task_id": 75,
+      "display_main": 0,
+      "display_next": 0,
+      "display_innav": 1,
+      "lockTime": 10,
+      "displayNav": {
+        "main": true,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figcaption": {
+            "text": ""
+          },
+          "video": {
+            "poster": "/media/lessons/sat/Situational_Awareness-poster.gif",
+            "src": "/media/lessons/sat/SAT_Demo.mp4"
+          },
+          "settings": {
+            "controls": false,
+            "timeline": false
+          },
+          "headings": {
+            "heading": ""
+          }
+        }
+      ]
+    }
+  ]
+}

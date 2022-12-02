@@ -1,0 +1,32 @@
+<div class="speedometer" [ngClass]="{'complete': this?.complete}" (touchstart)="this.onTouchStart('event')"
+     (touchend)="this.onTouchEnd('event')" (touchleave)="this.onTouchEnd('event')" (mousedown)="this.onTouchStart('event')"
+     (touchcancel)="this.onTouchEnd('event')">
+  <s></s>
+  <b>
+    <div class="speedometerValue">
+      <em>{{ this.Math?.floor(this?.visualSpeed) }}</em>
+      <span>{{ this.goal.units }}</span>
+    </div>
+    <div class="donut">
+      <svg viewBox="0 0 200 200">
+        <circle class="background" cx="100" cy="100" r="80"/>
+        <circle class="foreground" cx="100" cy="100" r="80"/>
+      </svg>
+    </div>
+    <div class="donut donut-widegoal">
+      <svg viewBox="0 0 200 200">
+        <circle class="widegoal" cx="100" cy="100" r="80" [ngClass]="{'active': this.properSpeed.status }"/>
+      </svg>
+    </div>
+    <div class="overlay">
+      <img [src]="this.globalService.assetsurl + '/media/lessons/dst/int1/speedometer.svg'"/>
+    </div>
+    <div class="donut donut-goal">
+      <svg viewBox="0 0 200 200">
+        <circle class="goal" cx="100" cy="100" r="80" [ngClass]="{'active': this.properSpeed.status }"/>
+      </svg>
+    </div>
+    <div class="clickDetect" (mousedown)="onTouchStart('event')" (mouseup)="onTouchEnd('event')"
+         (mouseleave)="onTouchEnd('event')"></div>
+  </b>
+</div>

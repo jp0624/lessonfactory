@@ -1,0 +1,28 @@
+:host {
+  &.scene-0 {
+    background-color: #ddd;
+  }
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 1500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.scene {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  .scene-html {
+    height: 100%;
+    width: 100%;
+  }
+
+}

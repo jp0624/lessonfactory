@@ -1,0 +1,30 @@
+.headings {
+  text-align: center;
+  app-heading {
+    margin: 0.5em 0;
+    float: left;
+    width: 100%;
+
+    &.heading-h1 {
+      font-size: 2em;
+
+    }
+    &.heading-h2 {
+      font-size: 1.25em;
+      padding: 0 1.5em;
+      line-height: 1.5em;
+    }
+    &.heading-h4 {
+      font-size: 0.75em;
+
+    }
+  }
+}
+
+:host {
+  position: absolute;
+  transform: translate(0%, -50%);
+  top: 50%;
+  left: 0;
+  width: 100%;
+}

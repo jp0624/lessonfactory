@@ -1,0 +1,841 @@
+{
+  "lesson_name": "Multi-Tasking",
+  "lesson_id": 37,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "intro",
+      "task_type_id": 4,
+      "pagetype": "TitlescreenComponent",
+      "lockType": "none",
+      "task_id": 31,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 1000,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+        {
+          "term": "Continue",
+          "selector": "{$dt-continue}",
+          "value": "continue"
+        }
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Multitasking - Driver Attitude",
+            "src": "/media/lessons/tmm/intro/image01-right.jpg"
+          },
+          "headings": {
+            "subheading": "Driver Attitude",
+            "heading": "Multitasking",
+            "src": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-1",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 32,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "random": "2",
+            "text": "Welcome to the Multitasking exercise. Before we begin, please select the statement that best describes your current view on the subject."
+          }
+        },
+        {
+          "answer": {
+            "score": "1",
+            "text": "driving while talking on the phone is not considered true multitasking"
+          }
+        },
+        {
+          "answer": {
+            "text": "multitasking is impossible",
+            "score": "5"
+          }
+        },
+        {
+          "answer": {
+            "text": "multitasking is twice as efficient as doing one task at a time",
+            "score": "2"
+          }
+        },
+        {
+          "answer": {
+            "score": "3",
+            "text": "multitasking is a skill that requires training to master"
+          }
+        },
+        {
+          "answer": {
+            "text": "the human brain can process multiple tasks simultaneously",
+            "score": "4"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fact",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 33,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figure": {
+            "alt": "Did you know - Brain Focus",
+            "src": "/media/lessons/tmm/fact/image01.svg"
+          },
+          "headings": {
+            "heading": "Did you know?"
+          },
+          "figcaption": {
+            "text": "It is physically impossible for your brain to focus on more than one complex task at a time."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Interactive 1",
+      "task_type_id": 11,
+      "pagetype": "TMM_Int1Component",
+      "lockType": "func-int",
+      "task_id": 34,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+        {
+          "term": "mph",
+          "selector": "{$dt-mph}",
+          "value": "mph"
+        },
+        {
+          "term": "km/h",
+          "selector": "{$dt-kmh}",
+          "value": "km/h"
+        },
+        {
+          "term": "Meters",
+          "selector": "{$dt-meters}",
+          "value": "meters"
+        },
+        {
+          "term": "Feet",
+          "selector": "{$dt-feet}",
+          "value": "feet"
+        }
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Try it for yourself"
+          },
+          "settings": {
+            "speedometer": "0",
+            "phone": "0",
+            "video": "0"
+          },
+          "video": {
+            "src": "",
+            "poster": ""
+          },
+          "figcaption": {
+            "text": "The following example simulates the experience of attempting to multitask while driving."
+          },
+          "lock": {
+            "type": "0"
+          }
+        },
+        {
+          "video": {
+            "src": "",
+            "poster": ""
+          },
+          "lock": {
+            "type": "int-func"
+          },
+          "headings": {
+            "heading": ""
+          },
+          "settings": {
+            "video": "0",
+            "phone": "0",
+            "speedometer": "1"
+          },
+          "figcaption": {
+            "text": "1. Press the speedometer or spacebar until you reach 40 mph"
+          }
+        },
+        {
+          "settings": {
+            "speedometer": "1",
+            "video": "0",
+            "phone": "0"
+          },
+          "video": {
+            "poster": "",
+            "src": ""
+          },
+          "lock": {
+            "type": "int-func"
+          },
+          "figcaption": {
+            "text": "2. Tap the speedometer or spacebar to maintain 40 mph"
+          },
+          "headings": {
+            "heading": ""
+          }
+        },
+        {
+          "figcaption": {
+            "text": "3. Type the number on the phone"
+          },
+          "settings": {
+            "speedometer": "0",
+            "phone": "1",
+            "video": "0"
+          },
+          "video": {
+            "poster": "",
+            "src": ""
+          },
+          "lock": {
+            "type": "int-func"
+          },
+          "headings": {
+            "heading": ""
+          }
+        },
+        {
+          "settings": {
+            "phone": "0",
+            "speedometer": "0",
+            "video": "0"
+          },
+          "video": {
+            "src": "",
+            "poster": ""
+          },
+          "lock": {
+            "type": "0"
+          },
+          "headings": {
+            "heading": ""
+          },
+          "figcaption": {
+            "text": "Now try to do both at the same time"
+          }
+        },
+        {
+          "settings": {
+            "phone": "1",
+            "speedometer": "1",
+            "video": "1"
+          },
+          "video": {
+            "poster": "/media/lessons/tmm/int1/crash01-right-poster.jpg",
+            "src": "/media/lessons/tmm/int1/crash01-right.mp4"
+          },
+          "figcaption": {
+            "text": ""
+          },
+          "lock": {
+            "type": "int-func"
+          },
+          "headings": {
+            "heading": ""
+          }
+        },
+        {
+          "result2": {
+            "heading": "{$speedDeviationImperial} {$dt-mph}",
+            "text": "While attempting to multitask, your speed deviated from the target speed by {$speedDeviationImperial} mph."
+          },
+          "result1": {
+            "heading": "{$percentageTimeSpeedMaintained}",
+            "text": "You only maintained the target speed {$percentageTimeSpeedMaintained}% of the time."
+          },
+          "result3": {
+            "text": "You drove distracted for the {$timeToDial} seconds it took you the dial the phone, and in this time you traveled {$distanceTravelledImperial} feet.",
+            "heading": "{$distanceTravelledImperial} {$dt-feet}"
+          },
+          "headings": {
+            "heading": "Look at what happened"
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-2",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 35,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "text": "Which statement best represents the main point of the exercise you just completed?",
+            "random": "0"
+          }
+        },
+        {
+          "answer": {
+            "text": "it is difficult to dial a phone number while driving",
+            "score": "1"
+          }
+        },
+        {
+          "answer": {
+            "score": "0",
+            "text": "it is more difficult to drive a car than it is to dial a phone number"
+          }
+        },
+        {
+          "answer": {
+            "score": "1",
+            "text": "it is difficult to maintain a consistent speed while multitasking"
+          }
+        },
+        {
+          "answer": {
+            "score": "1",
+            "text": "it is difficult to maintain concentration while multitasking"
+          }
+        },
+        {
+          "answer": {
+            "score": "2",
+            "text": "it is difficult to multitask without impacting performance"
+          }
+        }
+      ]
+    },
+    {
+      "name": "interactive-2",
+      "task_type_id": 12,
+      "pagetype": "TheatreComponent",
+      "lockType": "time-char",
+      "task_id": 36,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "stage": {
+            "html": "<img src='{$dt-mediaUrl}/media/lessons/tmm/int2/brain-left.png' class='brain-img brainLeft'><img src='{$dt-mediaUrl}/media/lessons/tmm/int2/brain-right.png' class='brain-img brainRight'><img src='{$dt-mediaUrl}/media/lessons/tmm/int2/brain-speedometer.png' class='brain-img brainSpeedometer'><img src='{$dt-mediaUrl}/media/lessons/tmm/int2/brain-phone.png' class='brain-img brainPhone'>",
+            "css": "<style>@keyframes pulse1 {0% {opacity: 1;} 50% {opacity: 0;} 100% {opacity: 1;}}@keyframes pulse2 {0% {opacity: 0;} 50% {opacity: 1;} 100% {opacity: 0;}}</style>"
+          }
+        },
+        {
+          "scene": {
+            "heading": "Why is multitasking impossible?",
+            "activeCss": "<style>.brainLeft, .brainRight {display: block;}.brainSpeedometer, .brainPhone {display: none;}</style>",
+            "text": "Multitasking cannot be done because your brain is not designed to efficiently juggle two or more tasks at a time. In fact, the term multitasking is not accurate. A more accurate phrase is task switching.",
+            "activeClass": "scene-0"
+          }
+        },
+        {
+          "scene": {
+            "activeClass": "scene-1",
+            "heading": "Single task focus",
+            "text": "As a person pursues a single goal, both sides of the brain focus on the task at hand.",
+            "activeCss": "<style>.brainLeft, .brainRight, .brainSpeedometer {display: block;} .brainPhone {display: none;}</style>"
+          }
+        },
+        {
+          "scene": {
+            "text": "Many people assume that the brain is able to divide its attention to focus on multiple tasks simultaneously.",
+            "activeClass": "scene-2",
+            "activeCss": "<style>.brainLeft, .brainRight, .brainPhone {display: block;} .brainSpeedometer {display: none;}</style>",
+            "heading": "Adding activities"
+          }
+        },
+        {
+          "scene": {
+            "text": "Instead, the brain rapidly switches focus between the two tasks, with one task being suspended while the other is being focused on.",
+            "heading": "Task switching",
+            "activeCss": "<style>.brainLeft, .brainRight {display: block;} .brainSpeedometer {opacity: 0; animation-name: pulse1;} .brainPhone {opacity: 0; animation-name: pulse2;}",
+            "activeClass": "scene-3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-3",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 37,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "random": "0",
+            "text": "When your brain tries to multitask, it divides its attention to focus on each task simultaneously."
+          }
+        },
+        {
+          "answer": {
+            "score": "2",
+            "text": "FALSE"
+          }
+        },
+        {
+          "answer": {
+            "text": "TRUE",
+            "score": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "interactive-3",
+      "task_type_id": 12,
+      "pagetype": "TheatreComponent",
+      "lockType": "time-char",
+      "task_id": 38,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+        {
+          "term": "Person A",
+          "selector": "{$dt-person_a}",
+          "value": "Person A"
+        },
+        {
+          "term": "Person B",
+          "selector": "{$dt-person_b}",
+          "value": "Person B"
+        },
+        {
+          "term": "Task 1",
+          "selector": "{$dt-task_1}",
+          "value": "Task 1"
+        },
+        {
+          "term": "Task 2",
+          "selector": "{$dt-task_2}",
+          "value": "Task 2"
+        },
+        {
+          "term": "Task Switch",
+          "selector": "{$dt-task_switch}",
+          "value": "Task Switch"
+        }
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "stage": {
+            "html": "<dl><dt>{$dt-person_a} </dt><dd>{$dt-task_1} </dd><dd>{$dt-task_switch} </dd><dd>{$dt-task_2} </dd><dt>{$dt-person_b} </dt><dd>{$dt-task_1} </dd><dd>{$dt-task_switch} </dd><dd>{$dt-task_2} </dd></dl><img src='{$dt-mediaUrl}/media/lessons/tmm/int3/graph-lines.gif' class='graph graph-lines'><div class='graph-mask'><img src='{$dt-mediaUrl}/media/lessons/tmm/int3/graph-bars.gif' class='graph graph-bars'></div><img src='{$dt-mediaUrl}/media/lessons/tmm/int3/graph-checks.png' class='graph graph-checks'>",
+            "css": "<style>dl { white-space: nowrap; width: 20%; text-align: right; position: absolute; height: 100%;} dt { font-weight: 600; margin-top: 43%; margin-bottom: 17%; height: 5%; float: right; clear: both;} dd ~ dt {margin-top: 17%;} dd { height: 6%; font-size: 0.75em; float: right; clear: both;} img {width: 80%; right: 0; left: auto;} .graph-mask {transition: all 250ms ease-in-out; position: absolute; width: 0%; height: 100%; overflow: hidden; left: 20%; top: 0;} .graph-mask img { position: relative; width: auto; height: 100%;}</style>"
+          }
+        },
+        {
+          "scene": {
+            "text": "When you try to multitask, each task takes longer to complete, and more errors are made, than if you focused on a single task at a time.",
+            "activeClass": "scene-0",
+            "heading": "How does multitasking affect performance?",
+            "activeCss": "<style> .graph, dl, .graph-checks {opacity: 0;} .content-wrapper.scene-0 {top: 50%; position: absolute; transform: translate(0, -50%);}</style>"
+          }
+        },
+        {
+          "scene": {
+            "text": "In this example, watch as 2 people complete 2 tasks. Person A will focus on a single task at a time, and Person B will attempt to multitask.",
+            "heading": "Multitasking in action",
+            "activeCss": "<style> .graph-mask {width: 0%;} .graph-checks {opacity: 0;}</style>",
+            "activeClass": "scene-1"
+          }
+        },
+        {
+          "scene": {
+            "activeClass": "scene-2",
+            "heading": "Multitasking in action",
+            "activeCss": "<style> .graph-mask {width: 8%;} .graph-checks {opacity: 0;}</style>",
+            "text": "Both participants start Task 1 at the same time."
+          }
+        },
+        {
+          "scene": {
+            "heading": "Goal shifting",
+            "activeCss": "<style> .graph-mask {width: 9.75%;} .graph-checks {opacity: 0;}</style>",
+            "activeClass": "scene-3",
+            "text": "Person B decides to move from one task to another. This is called goal shifting, and it is the first step the brain must take in order to switch tasks."
+          }
+        },
+        {
+          "scene": {
+            "heading": "Rule activation",
+            "text": "Next, the brain turns off the rules for the first task, and turns on the rules it needs to complete the next one. This is called rule activation.",
+            "activeCss": "<style> .graph-mask {width: 11.75%;} .graph-checks {opacity: 0;}</style>",
+            "activeClass": "scene-4"
+          }
+        },
+        {
+          "scene": {
+            "text": "After shifting goals and activating new rules, Person B now begins Task 2. Meanwhile, Person A has not needed these processes.",
+            "heading": "The task switches",
+            "activeCss": "<style> .graph-mask {width: 22%;} .graph-checks {opacity: 0;}</style>",
+            "activeClass": "scene-5"
+          }
+        },
+        {
+          "scene": {
+            "activeClass": "scene-6",
+            "text": "Shifting goals and activating new rules does not take long. If done frequently though, that time adds up, and Person B falls behind.",
+            "activeCss": "<style> .graph-mask {width: 100%;} .graph-checks {opacity: 1;}</style>",
+            "heading": "Look at what happened"
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-4",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 39,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "random": "0",
+            "text": "What is important to remember about goal switching and rule activation?"
+          }
+        },
+        {
+          "answer": {
+            "score": "0",
+            "text": "they are instantaneous and require no time to complete"
+          }
+        },
+        {
+          "answer": {
+            "text": "they occur each time you switch tasks, and take time for the brain to complete",
+            "score": "2"
+          }
+        },
+        {
+          "answer": {
+            "text": "they only actually occur in computers and other technology",
+            "score": "0"
+          }
+        },
+        {
+          "answer": {
+            "text": "they only occur when you focus on a single task",
+            "score": "0"
+          }
+        },
+        {
+          "answer": {
+            "score": "0",
+            "text": "they are a myth, and never occur"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Statistical Proof",
+      "task_type_id": 5,
+      "pagetype": "FigurefigcaptionComponent",
+      "lockType": "time-char",
+      "task_id": 40,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 5,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "figcaption": {
+            "text": "Drivers may think they can safely multitask by talking on a cell phone while driving, but studies show that those drivers miss about 50% of the visual information around them."
+          },
+          "figure": {
+            "alt": "Statistical Proof Study",
+            "src": "/media/lessons/tmm/stat/image01.gif"
+          },
+          "headings": {
+            "heading": "What are you missing?"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "task_type_id": 2,
+      "pagetype": "VideopageComponent",
+      "lockType": "video-complete",
+      "task_id": 41,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "The dangers of multitasking"
+          },
+          "video": {
+            "poster": "/media/lessons/tmm/intro/image01-right.jpg",
+            "src": "/media/lessons/tmm/video/videos/USA_EN_TMM.mp4"
+          },
+          "figcaption": {
+            "text": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-5",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 42,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "random": "0",
+            "text": "What is true of drivers who attempt to multitask?"
+          }
+        },
+        {
+          "answer": {
+            "text": "they can concentrate on all tasks simultaneously",
+            "score": "0"
+          }
+        },
+        {
+          "answer": {
+            "score": "0",
+            "text": "they are less likely to be involved in a collision than other drivers"
+          }
+        },
+        {
+          "answer": {
+            "score": "2",
+            "text": "they may not process unexpected actions even if they are in plain sight"
+          }
+        },
+        {
+          "answer": {
+            "score": "0",
+            "text": "they can still give driving their full attention"
+          }
+        },
+        {
+          "answer": {
+            "text": "they do not need to refocus each time they switch between tasks",
+            "score": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "question-6",
+      "task_type_id": 10,
+      "pagetype": "QuestionComponent",
+      "lockType": "none",
+      "task_id": 43,
+      "display_main": 0,
+      "display_next": 0,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "question": {
+            "text": "Now that you have completed the exercise, which statement about multitasking do you most agree with?",
+            "random": "0"
+          }
+        },
+        {
+          "answer": {
+            "text": "switching between two different tasks does not result in any decrease in performance",
+            "score": "1"
+          }
+        },
+        {
+          "answer": {
+            "score": "5",
+            "text": "a person can only concentrate on one complex task at a time"
+          }
+        },
+        {
+          "answer": {
+            "text": "multitasking challenges are only ever a concern while driving",
+            "score": "4"
+          }
+        },
+        {
+          "answer": {
+            "score": "2",
+            "text": "multitasking allows anyone to complete several activities simultaneously"
+          }
+        },
+        {
+          "answer": {
+            "score": "3",
+            "text": "being good at multitasking is just a matter of practice"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Congratulations",
+      "task_type_id": 13,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 44,
+      "display_main": 0,
+      "display_next": 1,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [
+      ],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "subheading": "You have successfully completed the Multitasking exercise.",
+            "text": "Remember, safe driving requires your full attention.",
+            "heading": "Congratulations"
+          }
+        }
+      ]
+    }
+  ]
+}
