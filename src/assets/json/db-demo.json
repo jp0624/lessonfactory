@@ -1,0 +1,92 @@
+{
+  "lesson_name": "Lesson Factory public demo",
+  "lesson_id": 47,
+  "lesson_type": "standard",
+  "type_id": 1,
+  "tasks": [
+    {
+      "name": "demo-0",
+      "task_type_id": 5,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 900,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Lesson Factory",
+            "subheading": "Interactive learning player",
+            "text": "Public demonstration \u00b7 Sample content. The original course media and training service are not included in this repository."
+          }
+        }
+      ]
+    },
+    {
+      "name": "demo-1",
+      "task_type_id": 5,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 901,
+      "display_main": 0,
+      "display_next": 1,
+      "display_innav": 1,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": true
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Situational awareness",
+            "subheading": "Look ahead. Leave space. Stay focused.",
+            "text": "Scan the road ahead, check mirrors regularly, and leave room to respond. Use the arrow to advance through this sample lesson."
+          }
+        }
+      ]
+    },
+    {
+      "name": "demo-2",
+      "task_type_id": 5,
+      "pagetype": "CentertextComponent",
+      "lockType": "none",
+      "task_id": 902,
+      "display_main": 0,
+      "display_next": 0,
+      "display_innav": 1,
+      "lockTime": 0,
+      "displayNav": {
+        "main": false,
+        "next": false
+      },
+      "pagecenter": true,
+      "dictionary": [],
+      "lang_code": "en",
+      "country_code": "US",
+      "content": [
+        {
+          "headings": {
+            "heading": "Sample lesson complete",
+            "subheading": "A reusable Angular learning experience",
+            "text": "This demo shows the original player with locally bundled text. Production learning records and original course assets require the training service."
+          }
+        }
+      ]
+    }
+  ]
+}
