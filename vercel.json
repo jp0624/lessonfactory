@@ -1,0 +1,1 @@
+{"framework":"angular","installCommand":"npm ci --legacy-peer-deps","buildCommand":"npm run build -- --progress=false","outputDirectory":"dist","rewrites":[{"source":"/(.*)","destination":"/index.html"}]}

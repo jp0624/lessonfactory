@@ -196,7 +196,9 @@ export class AppComponent implements OnInit {
 
     console.log('Set Data: ',  setData);
     
-    this.lessonDataService.getOldLessonData(setData).
+    (this.globalService.mode === 'local'
+      ? this.lessonDataService.getLessonDataLocal(params)
+      : this.lessonDataService.getOldLessonData(setData)).
         subscribe(data => {
           data
           console.log('GET OLD LESSON DATA: ', data);

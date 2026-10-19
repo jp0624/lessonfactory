@@ -38,3 +38,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Vercel demonstration
+
+The legacy Angular 6 application builds on Node 22 using Dart Sass through the existing node-sass loader API. Vercel serves `dist` and rewrites frontend routes to index.html. Opening a Vercel host without query parameters selects the bundled `sat` sample in local mode, which now reads the repository JSON rather than requiring the historical private API. Other local samples can be selected with `?local=tmm`, `?local=pvisc` or `?local=asse-18`. Ticket/preview modes retain their backend integration and need the original services. This is an archived demonstration, not a production training service.

@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build",
     "build-int": "ng build --base-href '/' --deploy-url '/' --output-path '../public'",
     "postbuild-int": "cd ../public && ln -s /opt/www/assets/public/assets/json /opt/www/lesson/public/assets/json && ln -s /opt/www/assets/public/assets/media /opt/www/lesson/public/assets/media && find . -type d -exec chmod 755 {} + && find . -type f -exec chmod 644 {} +",
     "test": "ng test",
@@ -59,11 +59,17 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "node-sass": "^4.9.0",
+    "node-sass": "npm:sass@1.32.13",
     "protractor": "~5.4.1",
     "sass-loader": "^6.0.6",
     "ts-node": "~3.2.0",
     "tslint": "^5.7.0",
     "typescript": "2.7.2"
+  },
+  "overrides": {
+    "node-sass": "$node-sass"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
